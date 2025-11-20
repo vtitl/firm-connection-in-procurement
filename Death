@@ -1,0 +1,8 @@
+clear all
+global savepath "D:\dataset\board networks and procurement\data\6-death"
+global boardpath "D:\dataset\board networks and procurement\data\2-compustat-boardex 00-19 board infor"
+
+*using BoardEx announcement data to identify deaths
+use "D:\dataset\BoardEx dta\Announcement 2001-2019\qybqqkala0tej1ww.dta", clear
+
+gen death_dum = 1 if strpos(lower(description), "passed away") > 0 | strpos(lower(description), "deceased") > 0 | strpos(lower(description), " died ") > 0
