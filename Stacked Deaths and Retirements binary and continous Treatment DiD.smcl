@@ -1,0 +1,1600 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\dataset\board networks and procurement\firm-connection-in-procurement\Stacked Deaths and Retirements binary and continous Treatment DiD.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 Nov 2025, 13:43:29
+{txt}
+{com}. 
+. log on
+{txt}(log already on)
+
+{com}. 
+. **Binary Treat, no control variables
+. foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{c -(}
+{txt}  2{com}.         
+. reghdfe `var'_ln i.Treat##i.post, abs(gvkey directorid year) vce(cluster gvkey)
+{txt}  3{com}. 
+. {c )-}
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}    254.23
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.8018
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.7642
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0041
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    0.6268
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}numcontrac~n{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} .2882223{col 26}{space 2}  .024653{col 37}{space 1}   11.69{col 46}{space 3}0.000{col 54}{space 4} .2398198{col 67}{space 3} .3366248
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2}  .126142{col 26}{space 2} .0326101{col 37}{space 1}    3.87{col 46}{space 3}0.000{col 54}{space 4}  .062117{col 67}{space 3}  .190167
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.1669436{col 26}{space 2} .0413298{col 37}{space 1}   -4.04{col 46}{space 3}0.000{col 54}{space 4}-.2480885{col 67}{space 3}-.0857988
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .7159372{col 26}{space 2} .0195939{col 37}{space 1}   36.54{col 46}{space 3}0.000{col 54}{space 4} .6774675{col 67}{space 3} .7544069
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}    156.72
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7245
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6722
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0034
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    0.6162
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}renegot~n_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} .2390055{col 26}{space 2} .0227289{col 37}{space 1}   10.52{col 46}{space 3}0.000{col 54}{space 4} .1943808{col 67}{space 3} .2836302
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .1190218{col 26}{space 2} .0311611{col 37}{space 1}    3.82{col 46}{space 3}0.000{col 54}{space 4} .0578417{col 67}{space 3} .1802018
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.1495063{col 26}{space 2} .0361408{col 37}{space 1}   -4.14{col 46}{space 3}0.000{col 54}{space 4}-.2204632{col 67}{space 3}-.0785494
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .3518302{col 26}{space 2} .0193226{col 37}{space 1}   18.21{col 46}{space 3}0.000{col 54}{space 4} .3138932{col 67}{space 3} .3897673
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}     21.50
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6785
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6174
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0005
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.8793
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}expecte~t_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2}-.1166712{col 26}{space 2} .1145681{col 37}{space 1}   -1.02{col 46}{space 3}0.309{col 54}{space 4}-.3416083{col 67}{space 3}  .108266
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .2618581{col 26}{space 2} .1729309{col 37}{space 1}    1.51{col 46}{space 3}0.130{col 54}{space 4}-.0776656{col 67}{space 3} .6013819
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.3688966{col 26}{space 2} .1938938{col 37}{space 1}   -1.90{col 46}{space 3}0.058{col 54}{space 4}-.7495778{col 67}{space 3} .0117847
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 5.735908{col 26}{space 2} .1030091{col 37}{space 1}   55.68{col 46}{space 3}0.000{col 54}{space 4} 5.533665{col 67}{space 3} 5.938151
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}     18.19
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6781
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6169
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0006
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.9471
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}total_c~l_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2}-.0871073{col 26}{space 2} .1157344{col 37}{space 1}   -0.75{col 46}{space 3}0.452{col 54}{space 4}-.3143343{col 67}{space 3} .1401197
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .2796154{col 26}{space 2} .1757329{col 37}{space 1}    1.59{col 46}{space 3}0.112{col 54}{space 4}-.0654097{col 67}{space 3} .6246404
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.3914562{col 26}{space 2} .1957732{col 37}{space 1}   -2.00{col 46}{space 3}0.046{col 54}{space 4}-.7758273{col 67}{space 3}-.0070851
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 5.788986{col 26}{space 2} .1049894{col 37}{space 1}   55.14{col 46}{space 3}0.000{col 54}{space 4} 5.582855{col 67}{space 3} 5.995116
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}     28.12
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7196
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6664
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0014
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.0085
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}expecte~n_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2}-.0214704{col 26}{space 2} .0606672{col 37}{space 1}   -0.35{col 46}{space 3}0.724{col 54}{space 4}-.1405813{col 67}{space 3} .0976405
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .2157343{col 26}{space 2} .0913781{col 37}{space 1}    2.36{col 46}{space 3}0.019{col 54}{space 4} .0363272{col 67}{space 3} .3951413
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.3107318{col 26}{space 2}   .10137{col 37}{space 1}   -3.07{col 46}{space 3}0.002{col 54}{space 4}-.5097564{col 67}{space 3}-.1117071
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 3.042742{col 26}{space 2} .0550645{col 37}{space 1}   55.26{col 46}{space 3}0.000{col 54}{space 4} 2.934631{col 67}{space 3} 3.150853
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 132 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}     29.34
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7126
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6580
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0012
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.1585
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}final_d~n_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2}-.0363028{col 26}{space 2} .0638599{col 37}{space 1}   -0.57{col 46}{space 3}0.570{col 54}{space 4}-.1616821{col 67}{space 3} .0890766
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .2289251{col 26}{space 2} .0974813{col 37}{space 1}    2.35{col 46}{space 3}0.019{col 54}{space 4} .0375353{col 67}{space 3} .4203149
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.3176448{col 26}{space 2} .1078886{col 37}{space 1}   -2.94{col 46}{space 3}0.003{col 54}{space 4}-.5294677{col 67}{space 3}-.1058219
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 3.260635{col 26}{space 2} .0580846{col 37}{space 1}   56.14{col 46}{space 3}0.000{col 54}{space 4} 3.146595{col 67}{space 3} 3.374675
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,222
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}     25.13
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6423
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.5717
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0012
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.3759
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}cost_ov~n_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} .5826983{col 26}{space 2}  .099127{col 37}{space 1}    5.88{col 46}{space 3}0.000{col 54}{space 4} .3880773{col 67}{space 3} .7773193
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .3590517{col 26}{space 2} .1536073{col 37}{space 1}    2.34{col 46}{space 3}0.020{col 54}{space 4} .0574671{col 67}{space 3} .6606364
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.4799425{col 26}{space 2} .1626802{col 37}{space 1}   -2.95{col 46}{space 3}0.003{col 54}{space 4}-.7993405{col 67}{space 3}-.1605445
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 2.081698{col 26}{space 2} .0929449{col 37}{space 1}   22.40{col 46}{space 3}0.000{col 54}{space 4} 1.899214{col 67}{space 3} 2.264181
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 128 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,672
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}    155.07
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6734
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6105
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0014
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.0189
+
+{txt}{ralign 78:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}    delay_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} .6425314{col 26}{space 2} .0587281{col 37}{space 1}   10.94{col 46}{space 3}0.000{col 54}{space 4} .5272277{col 67}{space 3} .7578351
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2} .2038809{col 26}{space 2} .0929395{col 37}{space 1}    2.19{col 46}{space 3}0.029{col 54}{space 4} .0214084{col 67}{space 3} .3863535
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2}-.3120798{col 26}{space 2} .0966821{col 37}{space 1}   -3.23{col 46}{space 3}0.001{col 54}{space 4}-.5019004{col 67}{space 3}-.1222592
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} 1.616601{col 26}{space 2}  .055791{col 37}{space 1}   28.98{col 46}{space 3}0.000{col 54}{space 4} 1.507063{col 67}{space 3} 1.726138
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 511 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,879
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    532{txt}){col 67}= {res}      0.80
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.4930
+{txt}{col 51}R-squared{col 67}= {res}    0.4113
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.2176
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0005
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       533{txt}{col 51}Root MSE{col 67}= {res}    0.3063
+
+{txt}{ralign 78:(Std. err. adjusted for {res:533} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}extra_c~t_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} .0020439{col 26}{space 2} .0134586{col 37}{space 1}    0.15{col 46}{space 3}0.879{col 54}{space 4}-.0243946{col 67}{space 3} .0284824
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2}-.0288275{col 26}{space 2} .0226587{col 37}{space 1}   -1.27{col 46}{space 3}0.204{col 54}{space 4}-.0733391{col 67}{space 3}  .015684
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2} .0094595{col 26}{space 2} .0215951{col 37}{space 1}    0.44{col 46}{space 3}0.662{col 54}{space 4}-.0329627{col 67}{space 3} .0518816
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .1860553{col 26}{space 2} .0121627{col 37}{space 1}   15.30{col 46}{space 3}0.000{col 54}{space 4} .1621624{col 67}{space 3} .2099482
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      533{col 27}{space 1}      533{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1901{col 27}{space 1}        1{col 39}{result}{space 1}     1900{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 491 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    10,019
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    544{txt}){col 67}= {res}      9.68
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.3495
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.1340
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0003
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       545{txt}{col 51}Root MSE{col 67}= {res}    0.6371
+
+{txt}{ralign 78:(Std. err. adjusted for {res:545} clusters in {res:gvkey})}
+{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 14}{c |}{col 26}    Robust
+{col 1}extra_d~y_ln{col 14}{c |} Coefficient{col 26}  std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 5}1.Treat {c |}{col 14}{res}{space 2} -.115855{col 26}{space 2} .0236567{col 37}{space 1}   -4.90{col 46}{space 3}0.000{col 54}{space 4}-.1623247{col 67}{space 3}-.0693853
+{txt}{space 6}1.post {c |}{col 14}{res}{space 2}-.0416266{col 26}{space 2} .0462371{col 37}{space 1}   -0.90{col 46}{space 3}0.368{col 54}{space 4}-.1324518{col 67}{space 3} .0491986
+{txt}{space 12} {c |}
+{space 2}Treat#post {c |}
+{space 8}1 1  {c |}{col 14}{res}{space 2} .0545348{col 26}{space 2} .0452639{col 37}{space 1}    1.20{col 46}{space 3}0.229{col 54}{space 4}-.0343786{col 67}{space 3} .1434482
+{txt}{space 12} {c |}
+{space 7}_cons {c |}{col 14}{res}{space 2} .5490764{col 26}{space 2} .0226098{col 37}{space 1}   24.28{col 46}{space 3}0.000{col 54}{space 4} .5046633{col 67}{space 3} .5934896
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      545{col 27}{space 1}      545{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1937{col 27}{space 1}        1{col 39}{result}{space 1}     1936{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}
+{com}. 
+. *Binary Treat with control variables
+. foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{c -(}
+{txt}  2{com}.         
+. reghdfe `var'_ln i.Treat##i.post gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+{txt}  3{com}. 
+. {c )-}
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      5.60
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.8040
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.7665
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0118
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    0.6241
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}   numcontract_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} .1801475{col 31}{space 2}  .069093{col 42}{space 1}    2.61{col 51}{space 3}0.009{col 59}{space 4} .0444934{col 72}{space 3} .3158016
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .1279119{col 31}{space 2} .0328445{col 42}{space 1}    3.89{col 51}{space 3}0.000{col 59}{space 4} .0634266{col 72}{space 3} .1923972
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.1656744{col 31}{space 2} .0415064{col 42}{space 1}   -3.99{col 51}{space 3}0.000{col 59}{space 4}-.2471662{col 72}{space 3}-.0841826
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.0172051{col 31}{space 2} .0514023{col 42}{space 1}   -0.33{col 51}{space 3}0.738{col 59}{space 4} -.118126{col 72}{space 3} .0837159
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0233759{col 31}{space 2} .1000929{col 42}{space 1}   -0.23{col 51}{space 3}0.815{col 59}{space 4}-.2198937{col 72}{space 3} .1731419
+{txt}independent_board {c |}{col 19}{res}{space 2}-.4224552{col 31}{space 2} .3457229{col 42}{space 1}   -1.22{col 51}{space 3}0.222{col 59}{space 4}-1.101232{col 72}{space 3} .2563212
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .0156514{col 31}{space 2} .0612339{col 42}{space 1}    0.26{col 51}{space 3}0.798{col 59}{space 4}-.1045724{col 72}{space 3} .1358752
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .5055719{col 31}{space 2} .1957271{col 42}{space 1}    2.58{col 51}{space 3}0.010{col 59}{space 4} .1212904{col 72}{space 3} .8898534
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .0744244{col 31}{space 2} .2126986{col 42}{space 1}    0.35{col 51}{space 3}0.727{col 59}{space 4}-.3431782{col 72}{space 3}  .492027
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2} .0013577{col 31}{space 2} .4988532{col 42}{space 1}    0.00{col 51}{space 3}0.998{col 59}{space 4}-.9780676{col 72}{space 3}  .980783
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0002923{col 31}{space 2} .0002794{col 42}{space 1}    1.05{col 51}{space 3}0.296{col 59}{space 4}-.0002562{col 72}{space 3} .0008408
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0065933{col 31}{space 2} .2226551{col 42}{space 1}    0.03{col 51}{space 3}0.976{col 59}{space 4}-.4305575{col 72}{space 3} .4437441
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-1.502693{col 31}{space 2} .6496025{col 42}{space 1}   -2.31{col 51}{space 3}0.021{col 59}{space 4}-2.778093{col 72}{space 3}-.2272936
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0016154{col 31}{space 2} .0021235{col 42}{space 1}    0.76{col 51}{space 3}0.447{col 59}{space 4}-.0025537{col 72}{space 3} .0057846
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.6423488{col 31}{space 2} .8416359{col 42}{space 1}   -0.76{col 51}{space 3}0.446{col 59}{space 4}-2.294778{col 72}{space 3}  1.01008
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}     28.77
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7267
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6744
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0090
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    0.6151
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1} renegotiation_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} .4214255{col 31}{space 2} .0570889{col 42}{space 1}    7.38{col 51}{space 3}0.000{col 59}{space 4} .3093399{col 72}{space 3} .5335112
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2}  .122375{col 31}{space 2} .0312554{col 42}{space 1}    3.92{col 51}{space 3}0.000{col 59}{space 4} .0610095{col 72}{space 3} .1837404
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.1501213{col 31}{space 2} .0356086{col 42}{space 1}   -4.22{col 51}{space 3}0.000{col 59}{space 4}-.2200336{col 72}{space 3}-.0802091
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.0250309{col 31}{space 2} .0420884{col 42}{space 1}   -0.59{col 51}{space 3}0.552{col 59}{space 4}-.1076654{col 72}{space 3} .0576036
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0980756{col 31}{space 2} .1241519{col 42}{space 1}   -0.79{col 51}{space 3}0.430{col 59}{space 4}-.3418298{col 72}{space 3} .1456785
+{txt}independent_board {c |}{col 19}{res}{space 2} .1968939{col 31}{space 2} .2676439{col 42}{space 1}    0.74{col 51}{space 3}0.462{col 59}{space 4}-.3285858{col 72}{space 3} .7223736
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}-.0112053{col 31}{space 2} .0550221{col 42}{space 1}   -0.20{col 51}{space 3}0.839{col 59}{space 4}-.1192333{col 72}{space 3} .0968226
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1856733{col 31}{space 2}  .214668{col 42}{space 1}    0.86{col 51}{space 3}0.387{col 59}{space 4} -.235796{col 72}{space 3} .6071426
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .1306403{col 31}{space 2} .1744681{col 42}{space 1}    0.75{col 51}{space 3}0.454{col 59}{space 4}-.2119023{col 72}{space 3}  .473183
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}  .183543{col 31}{space 2}  .315497{col 42}{space 1}    0.58{col 51}{space 3}0.561{col 59}{space 4}-.4358892{col 72}{space 3} .8029752
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0002922{col 31}{space 2} .0004186{col 42}{space 1}    0.70{col 51}{space 3}0.485{col 59}{space 4}-.0005296{col 72}{space 3}  .001114
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2}-.0523558{col 31}{space 2} .2137843{col 42}{space 1}   -0.24{col 51}{space 3}0.807{col 59}{space 4}-.4720899{col 72}{space 3} .3673784
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.6014058{col 31}{space 2} .4273023{col 42}{space 1}   -1.41{col 51}{space 3}0.160{col 59}{space 4}-1.440351{col 72}{space 3} .2375397
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0034328{col 31}{space 2} .0014553{col 42}{space 1}    2.36{col 51}{space 3}0.019{col 59}{space 4} .0005756{col 72}{space 3}   .00629
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.3841004{col 31}{space 2} .9200356{col 42}{space 1}   -0.42{col 51}{space 3}0.676{col 59}{space 4}-2.190456{col 72}{space 3} 1.422255
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      6.19
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6804
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6192
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0053
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.8717
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1} expected_cost_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2}-1.015043{col 31}{space 2} .3590382{col 42}{space 1}   -2.83{col 51}{space 3}0.005{col 59}{space 4}-1.719962{col 72}{space 3}-.3101242
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .2554439{col 31}{space 2} .1701743{col 42}{space 1}    1.50{col 51}{space 3}0.134{col 59}{space 4}-.0786684{col 72}{space 3} .5895562
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.3422307{col 31}{space 2} .1959204{col 42}{space 1}   -1.75{col 51}{space 3}0.081{col 59}{space 4}-.7268918{col 72}{space 3} .0424305
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.2620447{col 31}{space 2}  .295763{col 42}{space 1}   -0.89{col 51}{space 3}0.376{col 59}{space 4}-.8427322{col 72}{space 3} .3186427
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2} -.102146{col 31}{space 2} .6732071{col 42}{space 1}   -0.15{col 51}{space 3}0.879{col 59}{space 4} -1.42389{col 72}{space 3} 1.219598
+{txt}independent_board {c |}{col 19}{res}{space 2}-.9774819{col 31}{space 2} 1.898674{col 42}{space 1}   -0.51{col 51}{space 3}0.607{col 59}{space 4}-4.705251{col 72}{space 3} 2.750287
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .3746461{col 31}{space 2} .2765169{col 42}{space 1}    1.35{col 51}{space 3}0.176{col 59}{space 4}-.1682545{col 72}{space 3} .9175466
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} 1.403166{col 31}{space 2} .8206384{col 42}{space 1}    1.71{col 51}{space 3}0.088{col 59}{space 4}-.2080373{col 72}{space 3}  3.01437
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .1361197{col 31}{space 2} 1.266905{col 42}{space 1}    0.11{col 51}{space 3}0.914{col 59}{space 4}-2.351264{col 72}{space 3} 2.623503
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.109134{col 31}{space 2} 2.470881{col 42}{space 1}   -0.85{col 51}{space 3}0.394{col 59}{space 4}-6.960348{col 72}{space 3}  2.74208
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0013199{col 31}{space 2} .0019421{col 42}{space 1}    0.68{col 51}{space 3}0.497{col 59}{space 4}-.0024932{col 72}{space 3}  .005133
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0848978{col 31}{space 2} 1.210745{col 42}{space 1}    0.07{col 51}{space 3}0.944{col 59}{space 4}-2.292224{col 72}{space 3} 2.462019
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-6.123233{col 31}{space 2} 4.077395{col 42}{space 1}   -1.50{col 51}{space 3}0.134{col 59}{space 4} -14.1286{col 72}{space 3} 1.882136
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0080076{col 31}{space 2} .0079739{col 42}{space 1}    1.00{col 51}{space 3}0.316{col 59}{space 4}-.0076479{col 72}{space 3} .0236631
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} .1894093{col 31}{space 2} 3.777671{col 42}{space 1}    0.05{col 51}{space 3}0.960{col 59}{space 4}-7.227496{col 72}{space 3} 7.606314
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      5.63
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6800
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6188
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0053
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.9389
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}total_cost_all_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2}-.9533489{col 31}{space 2} .3638238{col 42}{space 1}   -2.62{col 51}{space 3}0.009{col 59}{space 4}-1.667664{col 72}{space 3} -.239034
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .2730253{col 31}{space 2} .1733111{col 42}{space 1}    1.58{col 51}{space 3}0.116{col 59}{space 4}-.0672456{col 72}{space 3} .6132963
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.3649313{col 31}{space 2}  .198067{col 42}{space 1}   -1.84{col 51}{space 3}0.066{col 59}{space 4}-.7538069{col 72}{space 3} .0239444
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.2398368{col 31}{space 2} .2997273{col 42}{space 1}   -0.80{col 51}{space 3}0.424{col 59}{space 4}-.8283076{col 72}{space 3}  .348634
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0708242{col 31}{space 2} .7016206{col 42}{space 1}   -0.10{col 51}{space 3}0.920{col 59}{space 4}-1.448354{col 72}{space 3} 1.306705
+{txt}independent_board {c |}{col 19}{res}{space 2}-1.280249{col 31}{space 2} 1.932162{col 42}{space 1}   -0.66{col 51}{space 3}0.508{col 59}{space 4}-5.073767{col 72}{space 3} 2.513268
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .4015328{col 31}{space 2} .2843083{col 42}{space 1}    1.41{col 51}{space 3}0.158{col 59}{space 4} -.156665{col 72}{space 3} .9597307
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} 1.352519{col 31}{space 2} .8377678{col 42}{space 1}    1.61{col 51}{space 3}0.107{col 59}{space 4}-.2923156{col 72}{space 3} 2.997354
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}  .085722{col 31}{space 2} 1.289451{col 42}{space 1}    0.07{col 51}{space 3}0.947{col 59}{space 4}-2.445927{col 72}{space 3} 2.617371
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.244651{col 31}{space 2} 2.480669{col 42}{space 1}   -0.90{col 51}{space 3}0.366{col 59}{space 4}-7.115083{col 72}{space 3} 2.625781
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}  .001419{col 31}{space 2} .0018579{col 42}{space 1}    0.76{col 51}{space 3}0.445{col 59}{space 4}-.0022288{col 72}{space 3} .0050668
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .2522632{col 31}{space 2} 1.225223{col 42}{space 1}    0.21{col 51}{space 3}0.837{col 59}{space 4}-2.153284{col 72}{space 3}  2.65781
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-6.122166{col 31}{space 2} 4.076894{col 42}{space 1}   -1.50{col 51}{space 3}0.134{col 59}{space 4}-14.12655{col 72}{space 3}  1.88222
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0071947{col 31}{space 2} .0094752{col 42}{space 1}    0.76{col 51}{space 3}0.448{col 59}{space 4}-.0114084{col 72}{space 3} .0257978
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} .3628088{col 31}{space 2} 3.889049{col 42}{space 1}    0.09{col 51}{space 3}0.926{col 59}{space 4} -7.27277{col 72}{space 3} 7.998388
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}     18.52
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7213
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6679
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0060
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.0046
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}expected_dur~n_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} -.837635{col 31}{space 2} .1918136{col 42}{space 1}   -4.37{col 51}{space 3}0.000{col 59}{space 4}-1.214233{col 72}{space 3} -.461037
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .2109577{col 31}{space 2}  .089839{col 42}{space 1}    2.35{col 51}{space 3}0.019{col 59}{space 4} .0345719{col 72}{space 3} .3873435
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.2965599{col 31}{space 2} .1020091{col 42}{space 1}   -2.91{col 51}{space 3}0.004{col 59}{space 4}-.4968399{col 72}{space 3}  -.09628
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.1437647{col 31}{space 2} .1620342{col 42}{space 1}   -0.89{col 51}{space 3}0.375{col 59}{space 4}-.4618952{col 72}{space 3} .1743659
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0033097{col 31}{space 2} .3502543{col 42}{space 1}   -0.01{col 51}{space 3}0.992{col 59}{space 4}-.6909827{col 72}{space 3} .6843634
+{txt}independent_board {c |}{col 19}{res}{space 2}-.4833509{col 31}{space 2} .9450331{col 42}{space 1}   -0.51{col 51}{space 3}0.609{col 59}{space 4}-2.338785{col 72}{space 3} 1.372083
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .1711195{col 31}{space 2} .1565223{col 42}{space 1}    1.09{col 51}{space 3}0.275{col 59}{space 4}-.1361892{col 72}{space 3} .4784283
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}  .870314{col 31}{space 2}  .443132{col 42}{space 1}    1.96{col 51}{space 3}0.050{col 59}{space 4} .0002891{col 72}{space 3} 1.740339
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .3029718{col 31}{space 2}  .664358{col 42}{space 1}    0.46{col 51}{space 3}0.649{col 59}{space 4}-1.001398{col 72}{space 3} 1.607342
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.7541499{col 31}{space 2} 1.275125{col 42}{space 1}   -0.59{col 51}{space 3}0.554{col 59}{space 4}-3.257671{col 72}{space 3} 1.749371
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0010656{col 31}{space 2} .0010022{col 42}{space 1}    1.06{col 51}{space 3}0.288{col 59}{space 4}-.0009021{col 72}{space 3} .0030332
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0892674{col 31}{space 2} .6390854{col 42}{space 1}    0.14{col 51}{space 3}0.889{col 59}{space 4}-1.165483{col 72}{space 3} 1.344018
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-2.985015{col 31}{space 2}  2.14165{col 42}{space 1}   -1.39{col 51}{space 3}0.164{col 59}{space 4}-7.189831{col 72}{space 3} 1.219802
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0043506{col 31}{space 2} .0050858{col 42}{space 1}    0.86{col 51}{space 3}0.393{col 59}{space 4}-.0056346{col 72}{space 3} .0143357
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} -.164598{col 31}{space 2}  2.10144{col 42}{space 1}   -0.08{col 51}{space 3}0.938{col 59}{space 4}-4.290468{col 72}{space 3} 3.961272
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      6.97
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.7143
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6596
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0061
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.1536
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}final_duration_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2}-.5251359{col 31}{space 2} .2040458{col 42}{space 1}   -2.57{col 51}{space 3}0.010{col 59}{space 4}  -.92575{col 72}{space 3}-.1245217
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .2252627{col 31}{space 2} .0961054{col 42}{space 1}    2.34{col 51}{space 3}0.019{col 59}{space 4} .0365737{col 72}{space 3} .4139517
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.2992005{col 31}{space 2} .1086648{col 42}{space 1}   -2.75{col 51}{space 3}0.006{col 59}{space 4} -.512548{col 72}{space 3}-.0858531
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.1991585{col 31}{space 2} .1742534{col 42}{space 1}   -1.14{col 51}{space 3}0.253{col 59}{space 4}-.5412796{col 72}{space 3} .1429625
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0818607{col 31}{space 2} .3813058{col 42}{space 1}   -0.21{col 51}{space 3}0.830{col 59}{space 4}-.8304989{col 72}{space 3} .6667776
+{txt}independent_board {c |}{col 19}{res}{space 2}-.4295544{col 31}{space 2} 1.007014{col 42}{space 1}   -0.43{col 51}{space 3}0.670{col 59}{space 4} -2.40668{col 72}{space 3} 1.547571
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .1737735{col 31}{space 2}    .1672{col 42}{space 1}    1.04{col 51}{space 3}0.299{col 59}{space 4}-.1544992{col 72}{space 3} .5020463
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .9463464{col 31}{space 2} .4707613{col 42}{space 1}    2.01{col 51}{space 3}0.045{col 59}{space 4} .0220753{col 72}{space 3} 1.870617
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .2295375{col 31}{space 2} .7247943{col 42}{space 1}    0.32{col 51}{space 3}0.752{col 59}{space 4} -1.19349{col 72}{space 3} 1.652565
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.9555557{col 31}{space 2} 1.353705{col 42}{space 1}   -0.71{col 51}{space 3}0.480{col 59}{space 4}-3.613358{col 72}{space 3} 1.702246
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0011055{col 31}{space 2} .0010064{col 42}{space 1}    1.10{col 51}{space 3}0.272{col 59}{space 4}-.0008705{col 72}{space 3} .0030814
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1287224{col 31}{space 2} .6871961{col 42}{space 1}    0.19{col 51}{space 3}0.851{col 59}{space 4}-1.220487{col 72}{space 3} 1.477931
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-3.123973{col 31}{space 2} 2.198775{col 42}{space 1}   -1.42{col 51}{space 3}0.156{col 59}{space 4}-7.440946{col 72}{space 3} 1.193001
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0050789{col 31}{space 2} .0049497{col 42}{space 1}    1.03{col 51}{space 3}0.305{col 59}{space 4} -.004639{col 72}{space 3} .0147968
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.2495625{col 31}{space 2} 2.232485{col 42}{space 1}   -0.11{col 51}{space 3}0.911{col 59}{space 4}-4.632721{col 72}{space 3} 4.133596
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,122
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      4.25
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6443
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.5735
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0048
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.3719
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}  cost_overrun_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} .8439965{col 31}{space 2}  .260088{col 42}{space 1}    3.25{col 51}{space 3}0.001{col 59}{space 4} .3333518{col 72}{space 3} 1.354641
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2}  .362492{col 31}{space 2} .1510927{col 42}{space 1}    2.40{col 51}{space 3}0.017{col 59}{space 4} .0658435{col 72}{space 3} .6591405
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.4742736{col 31}{space 2} .1613987{col 42}{space 1}   -2.94{col 51}{space 3}0.003{col 59}{space 4}-.7911564{col 72}{space 3}-.1573907
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.0385213{col 31}{space 2} .2255872{col 42}{space 1}   -0.17{col 51}{space 3}0.864{col 59}{space 4}-.4814288{col 72}{space 3} .4043862
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.2461835{col 31}{space 2}  .673985{col 42}{space 1}   -0.37{col 51}{space 3}0.715{col 59}{space 4}-1.569454{col 72}{space 3} 1.077087
+{txt}independent_board {c |}{col 19}{res}{space 2} .7757476{col 31}{space 2} 1.346326{col 42}{space 1}    0.58{col 51}{space 3}0.565{col 59}{space 4}-1.867567{col 72}{space 3} 3.419062
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}-.1075447{col 31}{space 2} .2412411{col 42}{space 1}   -0.45{col 51}{space 3}0.656{col 59}{space 4}-.5811864{col 72}{space 3}  .366097
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .8429281{col 31}{space 2} .8077737{col 42}{space 1}    1.04{col 51}{space 3}0.297{col 59}{space 4}-.7430175{col 72}{space 3} 2.428874
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .0622469{col 31}{space 2} .9931588{col 42}{space 1}    0.06{col 51}{space 3}0.950{col 59}{space 4}-1.887675{col 72}{space 3} 2.012169
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.1098741{col 31}{space 2} 1.598345{col 42}{space 1}   -0.07{col 51}{space 3}0.945{col 59}{space 4}-3.247992{col 72}{space 3} 3.028243
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0010131{col 31}{space 2} .0014519{col 42}{space 1}    0.70{col 51}{space 3}0.486{col 59}{space 4}-.0018374{col 72}{space 3} .0038636
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1489004{col 31}{space 2} .9344826{col 42}{space 1}    0.16{col 51}{space 3}0.873{col 59}{space 4} -1.68582{col 72}{space 3} 1.983621
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.5257718{col 31}{space 2} 2.468043{col 42}{space 1}   -0.21{col 51}{space 3}0.831{col 59}{space 4}-5.371413{col 72}{space 3} 4.319869
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0162003{col 31}{space 2} .0078721{col 42}{space 1}    2.06{col 51}{space 3}0.040{col 59}{space 4} .0007446{col 72}{space 3}  .031656
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.7835023{col 31}{space 2}   3.8909{col 42}{space 1}   -0.20{col 51}{space 3}0.840{col 59}{space 4}-8.422715{col 72}{space 3}  6.85571
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 129 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,573
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}     58.67
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6755
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6126
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0047
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.0133
+
+{txt}{ralign 83:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}         delay_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} 1.602528{col 31}{space 2} .1775807{col 42}{space 1}    9.02{col 51}{space 3}0.000{col 59}{space 4} 1.253874{col 72}{space 3} 1.951182
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2} .2109723{col 31}{space 2} .0923968{col 42}{space 1}    2.28{col 51}{space 3}0.023{col 59}{space 4} .0295646{col 72}{space 3}   .39238
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2}-.3017709{col 31}{space 2} .0970907{col 42}{space 1}   -3.11{col 51}{space 3}0.002{col 59}{space 4}-.4923942{col 72}{space 3}-.1111476
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.1096534{col 31}{space 2}  .137906{col 42}{space 1}   -0.80{col 51}{space 3}0.427{col 59}{space 4}-.3804117{col 72}{space 3}  .161105
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.2856635{col 31}{space 2} .3369589{col 42}{space 1}   -0.85{col 51}{space 3}0.397{col 59}{space 4} -.947233{col 72}{space 3} .3759061
+{txt}independent_board {c |}{col 19}{res}{space 2}-.1278451{col 31}{space 2} .9046343{col 42}{space 1}   -0.14{col 51}{space 3}0.888{col 59}{space 4}-1.903962{col 72}{space 3} 1.648272
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} -.025816{col 31}{space 2} .1525085{col 42}{space 1}   -0.17{col 51}{space 3}0.866{col 59}{space 4}-.3252441{col 72}{space 3}  .273612
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .7646177{col 31}{space 2} .4206746{col 42}{space 1}    1.82{col 51}{space 3}0.070{col 59}{space 4}-.0613154{col 72}{space 3} 1.590551
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .0280831{col 31}{space 2} .6304872{col 42}{space 1}    0.04{col 51}{space 3}0.964{col 59}{space 4}-1.209786{col 72}{space 3} 1.265953
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-1.032106{col 31}{space 2}  1.05457{col 42}{space 1}   -0.98{col 51}{space 3}0.328{col 59}{space 4}-3.102599{col 72}{space 3} 1.038387
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}  -.00102{col 31}{space 2} .0013287{col 42}{space 1}   -0.77{col 51}{space 3}0.443{col 59}{space 4}-.0036287{col 72}{space 3} .0015886
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2}-.2073537{col 31}{space 2}   .63271{col 42}{space 1}   -0.33{col 51}{space 3}0.743{col 59}{space 4}-1.449587{col 72}{space 3}  1.03488
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.3240669{col 31}{space 2} 1.616999{col 42}{space 1}   -0.20{col 51}{space 3}0.841{col 59}{space 4}-3.498808{col 72}{space 3} 2.850674
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0069218{col 31}{space 2} .0042868{col 42}{space 1}    1.61{col 51}{space 3}0.107{col 59}{space 4}-.0014947{col 72}{space 3} .0153382
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.5284642{col 31}{space 2} 2.178275{col 42}{space 1}   -0.24{col 51}{space 3}0.808{col 59}{space 4}-4.805189{col 72}{space 3} 3.748261
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 516 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 131 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,820
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    530{txt}){col 67}= {res}      0.91
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.5487
+{txt}{col 51}R-squared{col 67}= {res}    0.4158
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.2216
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0086
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       531{txt}{col 51}Root MSE{col 67}= {res}    0.3057
+
+{txt}{ralign 83:(Std. err. adjusted for {res:531} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}    extra_cost_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} .0240999{col 31}{space 2} .0387786{col 42}{space 1}    0.62{col 51}{space 3}0.535{col 59}{space 4}-.0520788{col 72}{space 3} .1002786
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2}-.0211884{col 31}{space 2} .0222718{col 42}{space 1}   -0.95{col 51}{space 3}0.342{col 59}{space 4}-.0649403{col 72}{space 3} .0225634
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2} .0053321{col 31}{space 2} .0216163{col 42}{space 1}    0.25{col 51}{space 3}0.805{col 59}{space 4} -.037132{col 72}{space 3} .0477962
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2} .0433777{col 31}{space 2} .0341714{col 42}{space 1}    1.27{col 51}{space 3}0.205{col 59}{space 4}-.0237502{col 72}{space 3} .1105056
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.1280389{col 31}{space 2} .0894512{col 42}{space 1}   -1.43{col 51}{space 3}0.153{col 59}{space 4}-.3037613{col 72}{space 3} .0476835
+{txt}independent_board {c |}{col 19}{res}{space 2}  .026249{col 31}{space 2} .1905296{col 42}{space 1}    0.14{col 51}{space 3}0.890{col 59}{space 4} -.348037{col 72}{space 3} .4005349
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}-.0284058{col 31}{space 2} .0358989{col 42}{space 1}   -0.79{col 51}{space 3}0.429{col 59}{space 4}-.0989275{col 72}{space 3} .0421159
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}-.2335034{col 31}{space 2} .1309425{col 42}{space 1}   -1.78{col 51}{space 3}0.075{col 59}{space 4}-.4907333{col 72}{space 3} .0237265
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.0507278{col 31}{space 2} .1422593{col 42}{space 1}   -0.36{col 51}{space 3}0.722{col 59}{space 4} -.330189{col 72}{space 3} .2287335
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2} .1514907{col 31}{space 2} .2466627{col 42}{space 1}    0.61{col 51}{space 3}0.539{col 59}{space 4} -.333066{col 72}{space 3} .6360473
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0014356{col 31}{space 2} .0007038{col 42}{space 1}    2.04{col 51}{space 3}0.042{col 59}{space 4}  .000053{col 72}{space 3} .0028182
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0282114{col 31}{space 2} .1232597{col 42}{space 1}    0.23{col 51}{space 3}0.819{col 59}{space 4}-.2139261{col 72}{space 3} .2703488
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.1328467{col 31}{space 2} .6323781{col 42}{space 1}   -0.21{col 51}{space 3}0.834{col 59}{space 4}-1.375122{col 72}{space 3} 1.109428
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0000728{col 31}{space 2}  .000496{col 42}{space 1}    0.15{col 51}{space 3}0.883{col 59}{space 4}-.0009016{col 72}{space 3} .0010471
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 1.428731{col 31}{space 2} .5930276{col 42}{space 1}    2.41{col 51}{space 3}0.016{col 59}{space 4}  .263758{col 72}{space 3} 2.593704
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      531{col 27}{space 1}      531{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1896{col 27}{space 1}        1{col 39}{result}{space 1}     1895{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 496 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,960
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    542{txt}){col 67}= {res}     12.18
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.3561
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.1407
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0073
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       543{txt}{col 51}Root MSE{col 67}= {res}    0.6318
+
+{txt}{ralign 83:(Std. err. adjusted for {res:543} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}   extra_delay_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 10}1.Treat {c |}{col 19}{res}{space 2} .3189714{col 31}{space 2} .0961626{col 42}{space 1}    3.32{col 51}{space 3}0.001{col 59}{space 4} .1300743{col 72}{space 3} .5078685
+{txt}{space 11}1.post {c |}{col 19}{res}{space 2}-.0466959{col 31}{space 2} .0455505{col 42}{space 1}   -1.03{col 51}{space 3}0.306{col 59}{space 4} -.136173{col 72}{space 3} .0427812
+{txt}{space 17} {c |}
+{space 7}Treat#post {c |}
+{space 13}1 1  {c |}{col 19}{res}{space 2} .0692943{col 31}{space 2} .0474326{col 42}{space 1}    1.46{col 51}{space 3}0.145{col 59}{space 4}  -.02388{col 72}{space 3} .1624685
+{txt}{space 17} {c |}
+{space 10}gov_dum {c |}{col 19}{res}{space 2}-.1812551{col 31}{space 2}  .102628{col 42}{space 1}   -1.77{col 51}{space 3}0.078{col 59}{space 4}-.3828525{col 72}{space 3} .0203422
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2} -.154999{col 31}{space 2} .1385641{col 42}{space 1}   -1.12{col 51}{space 3}0.264{col 59}{space 4}-.4271875{col 72}{space 3} .1171895
+{txt}independent_board {c |}{col 19}{res}{space 2}-.1014779{col 31}{space 2} .4932313{col 42}{space 1}   -0.21{col 51}{space 3}0.837{col 59}{space 4}-1.070357{col 72}{space 3} .8674013
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .0829179{col 31}{space 2} .0822877{col 42}{space 1}    1.01{col 51}{space 3}0.314{col 59}{space 4} -.078724{col 72}{space 3} .2445598
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}-.1084311{col 31}{space 2} .1583631{col 42}{space 1}   -0.68{col 51}{space 3}0.494{col 59}{space 4}-.4195116{col 72}{space 3} .2026495
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.1991188{col 31}{space 2} .2942528{col 42}{space 1}   -0.68{col 51}{space 3}0.499{col 59}{space 4}-.7771345{col 72}{space 3} .3788969
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2} .2699456{col 31}{space 2} .6693416{col 42}{space 1}    0.40{col 51}{space 3}0.687{col 59}{space 4}-1.044876{col 72}{space 3} 1.584767
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}-.0003676{col 31}{space 2} .0013103{col 42}{space 1}   -0.28{col 51}{space 3}0.779{col 59}{space 4}-.0029416{col 72}{space 3} .0022064
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2}-.0092382{col 31}{space 2} .3431454{col 42}{space 1}   -0.03{col 51}{space 3}0.979{col 59}{space 4}-.6832961{col 72}{space 3} .6648197
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2} .6239343{col 31}{space 2} 1.373352{col 42}{space 1}    0.45{col 51}{space 3}0.650{col 59}{space 4} -2.07381{col 72}{space 3} 3.321678
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0006325{col 31}{space 2} .0018152{col 42}{space 1}    0.35{col 51}{space 3}0.728{col 59}{space 4}-.0029331{col 72}{space 3} .0041981
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}  .450515{col 31}{space 2} .9446933{col 42}{space 1}    0.48{col 51}{space 3}0.634{col 59}{space 4}-1.405194{col 72}{space 3} 2.306224
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      543{col 27}{space 1}      543{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1932{col 27}{space 1}        1{col 39}{result}{space 1}     1931{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}
+{com}. 
+. *Continuous Treat (the number of connection that the died or retired board member had), no control variables
+. foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{c -(}
+{txt}  2{com}.         
+. reghdfe `var'_ln c.totnumties_DR##i.post, abs(gvkey directorid year) vce(cluster gvkey)
+{txt}  3{com}. 
+. {c )-}
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      7.75
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.8027
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.7653
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0087
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    0.6253
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}      numcontract_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0008399{col 34}{space 2} .0004578{col 45}{space 1}   -1.83{col 54}{space 3}0.067{col 62}{space 4}-.0017387{col 75}{space 3} .0000589
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1120674{col 34}{space 2} .0291205{col 45}{space 1}    3.85{col 54}{space 3}0.000{col 62}{space 4} .0548937{col 75}{space 3} .1692411
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0003333{col 34}{space 2} .0000806{col 45}{space 1}   -4.13{col 54}{space 3}0.000{col 62}{space 4}-.0004916{col 75}{space 3} -.000175
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 1.172346{col 34}{space 2} .1417246{col 45}{space 1}    8.27{col 54}{space 3}0.000{col 62}{space 4} .8940915{col 75}{space 3} 1.450601
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      6.11
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0004
+{txt}{col 51}R-squared{col 67}= {res}    0.7255
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6734
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0070
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    0.6151
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}    renegotiation_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0004419{col 34}{space 2} .0004016{col 45}{space 1}   -1.10{col 54}{space 3}0.272{col 62}{space 4}-.0012305{col 75}{space 3} .0003467
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1055951{col 34}{space 2} .0304005{col 45}{space 1}    3.47{col 54}{space 3}0.001{col 62}{space 4} .0459084{col 75}{space 3} .1652819
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0002941{col 34}{space 2} .0000782{col 45}{space 1}   -3.76{col 54}{space 3}0.000{col 62}{space 4}-.0004476{col 75}{space 3}-.0001406
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} .6519132{col 34}{space 2} .1245306{col 45}{space 1}    5.23{col 54}{space 3}0.000{col 62}{space 4} .4074162{col 75}{space 3} .8964101
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      1.27
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.2826
+{txt}{col 51}R-squared{col 67}= {res}    0.6785
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6175
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0006
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.8791
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}    expected_cost_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0000758{col 34}{space 2} .0013991{col 45}{space 1}   -0.05{col 54}{space 3}0.957{col 62}{space 4}-.0028228{col 75}{space 3} .0026712
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1761717{col 34}{space 2} .1426429{col 45}{space 1}    1.24{col 54}{space 3}0.217{col 62}{space 4}-.1038861{col 75}{space 3} .4562295
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}  -.00055{col 34}{space 2} .0002817{col 45}{space 1}   -1.95{col 54}{space 3}0.051{col 62}{space 4} -.001103{col 75}{space 3} 3.04e-06
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 5.679702{col 34}{space 2} .4517349{col 45}{space 1}   12.57{col 54}{space 3}0.000{col 62}{space 4} 4.792789{col 75}{space 3} 6.566616
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      1.52
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.2067
+{txt}{col 51}R-squared{col 67}= {res}    0.6781
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6170
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0007
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.9468
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}   total_cost_all_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0002735{col 34}{space 2} .0014769{col 45}{space 1}    0.19{col 54}{space 3}0.853{col 62}{space 4}-.0026261{col 75}{space 3} .0031732
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1950741{col 34}{space 2}  .145149{col 45}{space 1}    1.34{col 54}{space 3}0.179{col 62}{space 4}-.0899041{col 75}{space 3} .4800523
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0006023{col 34}{space 2}  .000285{col 45}{space 1}   -2.11{col 54}{space 3}0.035{col 62}{space 4}-.0011619{col 75}{space 3}-.0000428
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 5.645442{col 34}{space 2} .4758516{col 45}{space 1}   11.86{col 54}{space 3}0.000{col 62}{space 4}  4.71118{col 75}{space 3} 6.579705
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      4.89
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0023
+{txt}{col 51}R-squared{col 67}= {res}    0.7197
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6665
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0018
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.0080
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}expected_duration_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0013194{col 34}{space 2} .0006752{col 45}{space 1}   -1.95{col 54}{space 3}0.051{col 62}{space 4}-.0026451{col 75}{space 3} 6.26e-06
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1497341{col 34}{space 2} .0734995{col 45}{space 1}    2.04{col 54}{space 3}0.042{col 62}{space 4} .0054289{col 75}{space 3} .2940393
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0004901{col 34}{space 2} .0001449{col 45}{space 1}   -3.38{col 54}{space 3}0.001{col 62}{space 4}-.0007746{col 75}{space 3}-.0002056
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 3.434664{col 34}{space 2} .2179941{col 45}{space 1}   15.76{col 54}{space 3}0.000{col 62}{space 4} 3.006666{col 75}{space 3} 3.862663
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 125 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,923
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      3.98
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0079
+{txt}{col 51}R-squared{col 67}= {res}    0.7127
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6581
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0017
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.1580
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}   final_duration_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0008988{col 34}{space 2}  .000734{col 45}{space 1}   -1.22{col 54}{space 3}0.221{col 62}{space 4}-.0023399{col 75}{space 3} .0005423
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1636901{col 34}{space 2} .0787302{col 45}{space 1}    2.08{col 54}{space 3}0.038{col 62}{space 4} .0091153{col 75}{space 3} .3182649
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0005058{col 34}{space 2} .0001535{col 45}{space 1}   -3.29{col 54}{space 3}0.001{col 62}{space 4}-.0008072{col 75}{space 3}-.0002044
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 3.512821{col 34}{space 2} .2370062{col 45}{space 1}   14.82{col 54}{space 3}0.000{col 62}{space 4} 3.047495{col 75}{space 3} 3.978147
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 124 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,222
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      5.30
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0013
+{txt}{col 51}R-squared{col 67}= {res}    0.6429
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.5724
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0027
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    3.3733
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}     cost_overrun_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0017736{col 34}{space 2} .0014746{col 45}{space 1}   -1.20{col 54}{space 3}0.229{col 62}{space 4}-.0046687{col 75}{space 3} .0011215
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .3343493{col 34}{space 2} .1344956{col 45}{space 1}    2.49{col 54}{space 3}0.013{col 62}{space 4} .0702874{col 75}{space 3} .5984111
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0010072{col 34}{space 2} .0002745{col 45}{space 1}   -3.67{col 54}{space 3}0.000{col 62}{space 4}-.0015462{col 75}{space 3}-.0004683
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 3.027092{col 34}{space 2} .4645412{col 45}{space 1}    6.52{col 54}{space 3}0.000{col 62}{space 4} 2.115036{col 75}{space 3} 3.939149
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 122 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,672
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    702{txt}){col 67}= {res}      5.72
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0007
+{txt}{col 51}R-squared{col 67}= {res}    0.6741
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6113
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0034
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       703{txt}{col 51}Root MSE{col 67}= {res}    2.0169
+
+{txt}{ralign 86:(Std. err. adjusted for {res:703} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}            delay_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0004209{col 34}{space 2} .0008037{col 45}{space 1}    0.52{col 54}{space 3}0.601{col 62}{space 4} -.001157{col 75}{space 3} .0019989
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1968771{col 34}{space 2} .0800813{col 45}{space 1}    2.46{col 54}{space 3}0.014{col 62}{space 4} .0396495{col 75}{space 3} .3541046
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0006749{col 34}{space 2} .0001635{col 45}{space 1}   -4.13{col 54}{space 3}0.000{col 62}{space 4} -.000996{col 75}{space 3}-.0003538
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} 1.927457{col 34}{space 2} .2556586{col 45}{space 1}    7.54{col 54}{space 3}0.000{col 62}{space 4}  1.42551{col 75}{space 3} 2.429404
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      703{col 27}{space 1}      703{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2784{col 27}{space 1}        1{col 39}{result}{space 1}     2783{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 511 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,879
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    532{txt}){col 67}= {res}      3.27
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0209
+{txt}{col 51}R-squared{col 67}= {res}    0.4113
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.2176
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0004
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       533{txt}{col 51}Root MSE{col 67}= {res}    0.3063
+
+{txt}{ralign 86:(Std. err. adjusted for {res:533} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}       extra_cost_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0001977{col 34}{space 2} .0001045{col 45}{space 1}    1.89{col 54}{space 3}0.059{col 62}{space 4}-7.66e-06{col 75}{space 3}  .000403
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2}-.0199339{col 34}{space 2} .0195059{col 45}{space 1}   -1.02{col 54}{space 3}0.307{col 62}{space 4} -.058252{col 75}{space 3} .0183842
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-5.23e-06{col 34}{space 2} .0000285{col 45}{space 1}   -0.18{col 54}{space 3}0.855{col 62}{space 4}-.0000612{col 75}{space 3} .0000507
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} .1216918{col 34}{space 2} .0381286{col 45}{space 1}    3.19{col 54}{space 3}0.001{col 62}{space 4} .0467907{col 75}{space 3} .1965929
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      533{col 27}{space 1}      533{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1901{col 27}{space 1}        1{col 39}{result}{space 1}     1900{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 491 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 131 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    10,019
+{txt}Absorbing 3 HDFE groups{col 51}F({res}   3{txt},{res}    544{txt}){col 67}= {res}      0.14
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.9356
+{txt}{col 51}R-squared{col 67}= {res}    0.3494
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.1338
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0001
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       545{txt}{col 51}Root MSE{col 67}= {res}    0.6372
+
+{txt}{ralign 86:(Std. err. adjusted for {res:545} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}      extra_delay_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0000921{col 34}{space 2} .0003386{col 45}{space 1}    0.27{col 54}{space 3}0.786{col 62}{space 4}-.0005729{col 75}{space 3} .0007571
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} -.012464{col 34}{space 2} .0366193{col 45}{space 1}   -0.34{col 54}{space 3}0.734{col 62}{space 4}-.0843966{col 75}{space 3} .0594686
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2} .0000305{col 34}{space 2} .0000564{col 45}{space 1}    0.54{col 54}{space 3}0.589{col 62}{space 4}-.0000804{col 75}{space 3} .0001413
+{txt}{space 20} {c |}
+{space 15}_cons {c |}{col 22}{res}{space 2} .4349601{col 34}{space 2} .1159907{col 45}{space 1}    3.75{col 54}{space 3}0.000{col 62}{space 4} .2071155{col 75}{space 3} .6628047
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      545{col 27}{space 1}      545{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1937{col 27}{space 1}        1{col 39}{result}{space 1}     1936{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}
+{com}. 
+. *Continuous Treat (the number of connection that the died or retired board member had) with control variables
+. foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{c -(}
+{txt}  2{com}.         
+. reghdfe `var'_ln  c.totnumties_DR##i.post gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+{txt}  3{com}. 
+. {c )-}
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      2.78
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0005
+{txt}{col 51}R-squared{col 67}= {res}    0.8048
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.7675
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0160
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    0.6228
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}      numcontract_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0007969{col 34}{space 2} .0004367{col 45}{space 1}   -1.82{col 54}{space 3}0.068{col 62}{space 4}-.0016542{col 75}{space 3} .0000605
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1124763{col 34}{space 2} .0290966{col 45}{space 1}    3.87{col 54}{space 3}0.000{col 62}{space 4} .0553494{col 75}{space 3} .1696033
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0003248{col 34}{space 2} .0000781{col 45}{space 1}   -4.16{col 54}{space 3}0.000{col 62}{space 4}-.0004781{col 75}{space 3}-.0001715
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2} -.023364{col 34}{space 2} .0510895{col 45}{space 1}   -0.46{col 54}{space 3}0.648{col 62}{space 4}-.1236707{col 75}{space 3} .0769428
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.0229365{col 34}{space 2} .0987589{col 45}{space 1}   -0.23{col 54}{space 3}0.816{col 62}{space 4}-.2168352{col 75}{space 3} .1709621
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.3962432{col 34}{space 2} .3445368{col 45}{space 1}   -1.15{col 54}{space 3}0.251{col 62}{space 4}-1.072691{col 75}{space 3} .2802044
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .0151472{col 34}{space 2} .0593267{col 45}{space 1}    0.26{col 54}{space 3}0.799{col 62}{space 4} -.101332{col 75}{space 3} .1316265
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} .4700241{col 34}{space 2} .1919456{col 45}{space 1}    2.45{col 54}{space 3}0.015{col 62}{space 4}  .093167{col 75}{space 3} .8468811
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .0657519{col 34}{space 2} .2122381{col 45}{space 1}    0.31{col 54}{space 3}0.757{col 62}{space 4}-.3509466{col 75}{space 3} .4824504
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2} .0282901{col 34}{space 2} .4953446{col 45}{space 1}    0.06{col 54}{space 3}0.954{col 62}{space 4}-.9442467{col 75}{space 3} 1.000827
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0003285{col 34}{space 2}   .00028{col 45}{space 1}    1.17{col 54}{space 3}0.241{col 62}{space 4}-.0002212{col 75}{space 3} .0008782
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2}-.0191065{col 34}{space 2} .2191942{col 45}{space 1}   -0.09{col 54}{space 3}0.931{col 62}{space 4}-.4494623{col 75}{space 3} .4112492
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-1.508867{col 34}{space 2} .6464819{col 45}{space 1}   -2.33{col 54}{space 3}0.020{col 62}{space 4}-2.778139{col 75}{space 3}-.2395939
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0015667{col 34}{space 2} .0020926{col 45}{space 1}    0.75{col 54}{space 3}0.454{col 62}{space 4}-.0025418{col 75}{space 3} .0056752
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2}-.1622636{col 34}{space 2} .8310357{col 45}{space 1}   -0.20{col 54}{space 3}0.845{col 62}{space 4}-1.793881{col 75}{space 3} 1.469354
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      2.12
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0097
+{txt}{col 51}R-squared{col 67}= {res}    0.7276
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6755
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0124
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    0.6140
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}    renegotiation_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0004816{col 34}{space 2} .0003893{col 45}{space 1}   -1.24{col 54}{space 3}0.216{col 62}{space 4}-.0012459{col 75}{space 3} .0002827
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1079312{col 34}{space 2} .0304347{col 45}{space 1}    3.55{col 54}{space 3}0.000{col 62}{space 4} .0481771{col 75}{space 3} .1676852
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0002917{col 34}{space 2} .0000752{col 45}{space 1}   -3.88{col 54}{space 3}0.000{col 62}{space 4}-.0004393{col 75}{space 3} -.000144
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.0306464{col 34}{space 2} .0418261{col 45}{space 1}   -0.73{col 54}{space 3}0.464{col 62}{space 4}-.1127659{col 75}{space 3}  .051473
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2} -.097719{col 34}{space 2} .1234111{col 45}{space 1}   -0.79{col 54}{space 3}0.429{col 62}{space 4}-.3400186{col 75}{space 3} .1445807
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2} .2207887{col 34}{space 2} .2668326{col 45}{space 1}    0.83{col 54}{space 3}0.408{col 62}{space 4}-.3030981{col 75}{space 3} .7446755
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2}-.0116151{col 34}{space 2} .0531856{col 45}{space 1}   -0.22{col 54}{space 3}0.827{col 62}{space 4}-.1160373{col 75}{space 3} .0928071
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} .1544087{col 34}{space 2} .2116201{col 45}{space 1}    0.73{col 54}{space 3}0.466{col 62}{space 4}-.2610765{col 75}{space 3} .5698939
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .1226876{col 34}{space 2} .1739676{col 45}{space 1}    0.71{col 54}{space 3}0.481{col 62}{space 4}-.2188723{col 75}{space 3} .4642475
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2} .2070663{col 34}{space 2} .3122867{col 45}{space 1}    0.66{col 54}{space 3}0.508{col 62}{space 4} -.406063{col 75}{space 3} .8201955
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0003245{col 34}{space 2} .0004375{col 45}{space 1}    0.74{col 54}{space 3}0.458{col 62}{space 4}-.0005344{col 75}{space 3} .0011834
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2}-.0765644{col 34}{space 2} .2114761{col 45}{space 1}   -0.36{col 54}{space 3}0.717{col 62}{space 4}-.4917669{col 75}{space 3}  .338638
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-.6067977{col 34}{space 2} .4253616{col 45}{space 1}   -1.43{col 54}{space 3}0.154{col 62}{space 4}-1.441933{col 75}{space 3} .2283377
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0033877{col 34}{space 2}  .001434{col 45}{space 1}    2.36{col 54}{space 3}0.018{col 62}{space 4} .0005723{col 75}{space 3} .0062031
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2} .1512042{col 34}{space 2} .9071905{col 45}{space 1}    0.17{col 54}{space 3}0.868{col 62}{space 4}-1.629932{col 75}{space 3}  1.93234
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      1.29
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.2090
+{txt}{col 51}R-squared{col 67}= {res}    0.6804
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6192
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0054
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.8716
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}    expected_cost_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0004382{col 34}{space 2} .0014526{col 45}{space 1}   -0.30{col 54}{space 3}0.763{col 62}{space 4}-.0032902{col 75}{space 3} .0024138
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1717326{col 34}{space 2} .1398028{col 45}{space 1}    1.23{col 54}{space 3}0.220{col 62}{space 4}-.1027498{col 75}{space 3}  .446215
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2} -.000497{col 34}{space 2} .0002809{col 45}{space 1}   -1.77{col 54}{space 3}0.077{col 62}{space 4}-.0010484{col 75}{space 3} .0000544
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.2728976{col 34}{space 2} .2951378{col 45}{space 1}   -0.92{col 54}{space 3}0.355{col 62}{space 4}-.8523576{col 75}{space 3} .3065624
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.0987173{col 34}{space 2} .6737564{col 45}{space 1}   -0.15{col 54}{space 3}0.884{col 62}{space 4} -1.42154{col 75}{space 3} 1.224105
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.9066909{col 34}{space 2} 1.901246{col 45}{space 1}   -0.48{col 54}{space 3}0.634{col 62}{space 4} -4.63951{col 75}{space 3} 2.826129
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .3785022{col 34}{space 2} .2763641{col 45}{space 1}    1.37{col 54}{space 3}0.171{col 62}{space 4}-.1640984{col 75}{space 3} .9211028
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} 1.356773{col 34}{space 2} .8184356{col 45}{space 1}    1.66{col 54}{space 3}0.098{col 62}{space 4}-.2501061{col 75}{space 3} 2.963651
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .1134283{col 34}{space 2} 1.267566{col 45}{space 1}    0.09{col 54}{space 3}0.929{col 62}{space 4}-2.375252{col 75}{space 3} 2.602108
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-2.065849{col 34}{space 2} 2.470793{col 45}{space 1}   -0.84{col 54}{space 3}0.403{col 62}{space 4} -6.91689{col 75}{space 3} 2.785193
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2}   .00136{col 34}{space 2} .0018818{col 45}{space 1}    0.72{col 54}{space 3}0.470{col 62}{space 4}-.0023346{col 75}{space 3} .0050545
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .0500772{col 34}{space 2}  1.20898{col 45}{space 1}    0.04{col 54}{space 3}0.967{col 62}{space 4}-2.323577{col 75}{space 3} 2.423732
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-6.120293{col 34}{space 2} 4.075956{col 45}{space 1}   -1.50{col 54}{space 3}0.134{col 62}{space 4}-14.12284{col 75}{space 3} 1.882251
+{txt}{space 17}emp {c |}{col 22}{res}{space 2}  .007867{col 34}{space 2} .0079515{col 45}{space 1}    0.99{col 54}{space 3}0.323{col 62}{space 4}-.0077446{col 75}{space 3} .0234785
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2}-.2981051{col 34}{space 2} 3.812037{col 45}{space 1}   -0.08{col 54}{space 3}0.938{col 62}{space 4}-7.782483{col 75}{space 3} 7.186273
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      1.31
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.1973
+{txt}{col 51}R-squared{col 67}= {res}    0.6801
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6188
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0054
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.9387
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}   total_cost_all_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0001114{col 34}{space 2} .0015187{col 45}{space 1}   -0.07{col 54}{space 3}0.942{col 62}{space 4}-.0030932{col 75}{space 3} .0028703
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1896599{col 34}{space 2} .1422106{col 45}{space 1}    1.33{col 54}{space 3}0.183{col 62}{space 4}-.0895499{col 75}{space 3} .4688697
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2} -.000547{col 34}{space 2} .0002838{col 45}{space 1}   -1.93{col 54}{space 3}0.054{col 62}{space 4}-.0011042{col 75}{space 3} .0000101
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.2517243{col 34}{space 2} .2990868{col 45}{space 1}   -0.84{col 54}{space 3}0.400{col 62}{space 4}-.8389375{col 75}{space 3} .3354889
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.0675034{col 34}{space 2} .7020382{col 45}{space 1}   -0.10{col 54}{space 3}0.923{col 62}{space 4}-1.445853{col 75}{space 3} 1.310846
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-1.206372{col 34}{space 2} 1.934185{col 45}{space 1}   -0.62{col 54}{space 3}0.533{col 62}{space 4}-5.003861{col 75}{space 3} 2.591117
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .4050941{col 34}{space 2} .2840691{col 45}{space 1}    1.43{col 54}{space 3}0.154{col 62}{space 4} -.152634{col 75}{space 3} .9628221
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} 1.301608{col 34}{space 2} .8354777{col 45}{space 1}    1.56{col 54}{space 3}0.120{col 62}{space 4}-.3387304{col 75}{space 3} 2.941946
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .0620477{col 34}{space 2} 1.290066{col 45}{space 1}    0.05{col 54}{space 3}0.962{col 62}{space 4}-2.470809{col 75}{space 3} 2.594904
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-2.197343{col 34}{space 2} 2.480358{col 45}{space 1}   -0.89{col 54}{space 3}0.376{col 62}{space 4}-7.067163{col 75}{space 3} 2.672478
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2}  .001465{col 34}{space 2}  .001794{col 45}{space 1}    0.82{col 54}{space 3}0.414{col 62}{space 4}-.0020573{col 75}{space 3} .0049873
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .2133703{col 34}{space 2} 1.223299{col 45}{space 1}    0.17{col 54}{space 3}0.862{col 62}{space 4}-2.188398{col 75}{space 3} 2.615139
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2} -6.11997{col 34}{space 2} 4.074838{col 45}{space 1}   -1.50{col 54}{space 3}0.134{col 62}{space 4}-14.12032{col 75}{space 3} 1.880378
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0070457{col 34}{space 2} .0094377{col 45}{space 1}    0.75{col 54}{space 3}0.456{col 62}{space 4}-.0114838{col 75}{space 3} .0255752
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2}-.1662222{col 34}{space 2} 3.918701{col 45}{space 1}   -0.04{col 54}{space 3}0.966{col 62}{space 4} -7.86002{col 75}{space 3} 7.527575
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      2.17
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0075
+{txt}{col 51}R-squared{col 67}= {res}    0.7214
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6681
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0063
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.0042
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}expected_duration_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0014349{col 34}{space 2} .0006788{col 45}{space 1}   -2.11{col 54}{space 3}0.035{col 62}{space 4}-.0027677{col 75}{space 3} -.000102
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1467207{col 34}{space 2} .0717124{col 45}{space 1}    2.05{col 54}{space 3}0.041{col 62}{space 4} .0059239{col 75}{space 3} .2875174
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0004632{col 34}{space 2} .0001435{col 45}{space 1}   -3.23{col 54}{space 3}0.001{col 62}{space 4}-.0007449{col 75}{space 3}-.0001815
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.1532874{col 34}{space 2}   .16148{col 45}{space 1}   -0.95{col 54}{space 3}0.343{col 62}{space 4}-.4703299{col 75}{space 3} .1637551
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.0006247{col 34}{space 2} .3500895{col 45}{space 1}   -0.00{col 54}{space 3}0.999{col 62}{space 4}-.6879742{col 75}{space 3} .6867249
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.4250609{col 34}{space 2} .9456903{col 45}{space 1}   -0.45{col 54}{space 3}0.653{col 62}{space 4}-2.281786{col 75}{space 3} 1.431664
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .1736641{col 34}{space 2} .1559986{col 45}{space 1}    1.11{col 54}{space 3}0.266{col 62}{space 4}-.1326164{col 75}{space 3} .4799445
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2}  .822965{col 34}{space 2} .4408056{col 45}{space 1}    1.87{col 54}{space 3}0.062{col 62}{space 4}-.0424923{col 75}{space 3} 1.688422
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .2841455{col 34}{space 2} .6646422{col 45}{space 1}    0.43{col 54}{space 3}0.669{col 62}{space 4}-1.020782{col 75}{space 3} 1.589073
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-.7136892{col 34}{space 2} 1.275878{col 45}{space 1}   -0.56{col 54}{space 3}0.576{col 62}{space 4}-3.218689{col 75}{space 3}  1.79131
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0011068{col 34}{space 2} .0009468{col 45}{space 1}    1.17{col 54}{space 3}0.243{col 62}{space 4}-.0007522{col 75}{space 3} .0029658
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .0566139{col 34}{space 2} .6375346{col 45}{space 1}    0.09{col 54}{space 3}0.929{col 62}{space 4}-1.195092{col 75}{space 3}  1.30832
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-2.986192{col 34}{space 2} 2.139266{col 45}{space 1}   -1.40{col 54}{space 3}0.163{col 62}{space 4}-7.186329{col 75}{space 3} 1.213945
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0042405{col 34}{space 2} .0050555{col 45}{space 1}    0.84{col 54}{space 3}0.402{col 62}{space 4}-.0056852{col 75}{space 3} .0141663
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2}-.1992819{col 34}{space 2} 2.106663{col 45}{space 1}   -0.09{col 54}{space 3}0.925{col 62}{space 4}-4.335407{col 75}{space 3} 3.936843
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,823
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      1.98
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0172
+{txt}{col 51}R-squared{col 67}= {res}    0.7144
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6598
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0065
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.1532
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}   final_duration_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0009979{col 34}{space 2} .0007381{col 45}{space 1}   -1.35{col 54}{space 3}0.177{col 62}{space 4}-.0024471{col 75}{space 3} .0004512
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .1637046{col 34}{space 2} .0768602{col 45}{space 1}    2.13{col 54}{space 3}0.034{col 62}{space 4} .0128009{col 75}{space 3} .3146083
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0004755{col 34}{space 2} .0001519{col 45}{space 1}   -3.13{col 54}{space 3}0.002{col 62}{space 4}-.0007736{col 75}{space 3}-.0001773
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.2089956{col 34}{space 2} .1738525{col 45}{space 1}   -1.20{col 54}{space 3}0.230{col 62}{space 4}-.5503294{col 75}{space 3} .1323383
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.0793996{col 34}{space 2} .3811554{col 45}{space 1}   -0.21{col 54}{space 3}0.835{col 62}{space 4}-.8277425{col 75}{space 3} .6689434
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.3716123{col 34}{space 2} 1.007529{col 45}{space 1}   -0.37{col 54}{space 3}0.712{col 62}{space 4}-2.349749{col 75}{space 3} 1.606524
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .1760413{col 34}{space 2}  .166623{col 45}{space 1}    1.06{col 54}{space 3}0.291{col 62}{space 4}-.1510986{col 75}{space 3} .5031813
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} .8985726{col 34}{space 2} .4683505{col 45}{space 1}    1.92{col 54}{space 3}0.055{col 62}{space 4}-.0209652{col 75}{space 3}  1.81811
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .2107811{col 34}{space 2} .7248665{col 45}{space 1}    0.29{col 54}{space 3}0.771{col 62}{space 4}-1.212388{col 75}{space 3} 1.633951
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-.9148372{col 34}{space 2} 1.353731{col 45}{space 1}   -0.68{col 54}{space 3}0.499{col 62}{space 4} -3.57269{col 75}{space 3} 1.743015
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0011487{col 34}{space 2} .0009531{col 45}{space 1}    1.21{col 54}{space 3}0.229{col 62}{space 4}-.0007226{col 75}{space 3}   .00302
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .0938269{col 34}{space 2} .6851037{col 45}{space 1}    0.14{col 54}{space 3}0.891{col 62}{space 4}-1.251274{col 75}{space 3} 1.438928
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2} -3.12555{col 34}{space 2} 2.195842{col 45}{space 1}   -1.42{col 54}{space 3}0.155{col 62}{space 4}-7.436764{col 75}{space 3} 1.185664
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0049676{col 34}{space 2} .0049207{col 45}{space 1}    1.01{col 54}{space 3}0.313{col 62}{space 4}-.0046935{col 75}{space 3} .0146287
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2} -.198781{col 34}{space 2} 2.235401{col 45}{space 1}   -0.09{col 54}{space 3}0.929{col 62}{space 4}-4.587665{col 75}{space 3} 4.190103
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,122
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      1.46
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.1201
+{txt}{col 51}R-squared{col 67}= {res}    0.6448
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.5741
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0062
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    3.3694
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}     cost_overrun_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0019526{col 34}{space 2} .0014629{col 45}{space 1}   -1.33{col 54}{space 3}0.182{col 62}{space 4}-.0048249{col 75}{space 3} .0009196
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .3332094{col 34}{space 2} .1323465{col 45}{space 1}    2.52{col 54}{space 3}0.012{col 62}{space 4} .0733662{col 75}{space 3} .5930525
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2} -.000978{col 34}{space 2} .0002684{col 45}{space 1}   -3.64{col 54}{space 3}0.000{col 62}{space 4}-.0015049{col 75}{space 3} -.000451
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.0569444{col 34}{space 2} .2243655{col 45}{space 1}   -0.25{col 54}{space 3}0.800{col 62}{space 4}-.4974534{col 75}{space 3} .3835645
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.2439702{col 34}{space 2} .6731168{col 45}{space 1}   -0.36{col 54}{space 3}0.717{col 62}{space 4}-1.565537{col 75}{space 3} 1.077596
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2} .8400376{col 34}{space 2} 1.346219{col 45}{space 1}    0.62{col 54}{space 3}0.533{col 62}{space 4}-1.803066{col 75}{space 3} 3.483141
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} -.110143{col 34}{space 2} .2383161{col 45}{space 1}   -0.46{col 54}{space 3}0.644{col 62}{space 4}-.5780419{col 75}{space 3} .3577559
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} .7362742{col 34}{space 2} .7969448{col 45}{space 1}    0.92{col 54}{space 3}0.356{col 62}{space 4}-.8284103{col 75}{space 3} 2.300959
+{txt}{space 16}cash {c |}{col 22}{res}{space 2}  .040084{col 34}{space 2} .9926302{col 45}{space 1}    0.04{col 54}{space 3}0.968{col 62}{space 4}  -1.9088{col 75}{space 3} 1.988968
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-.0245858{col 34}{space 2} 1.587745{col 45}{space 1}   -0.02{col 54}{space 3}0.988{col 62}{space 4}-3.141892{col 75}{space 3}  3.09272
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0011077{col 34}{space 2} .0015083{col 45}{space 1}    0.73{col 54}{space 3}0.463{col 62}{space 4}-.0018537{col 75}{space 3} .0040691
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .0752514{col 34}{space 2} .9289076{col 45}{space 1}    0.08{col 54}{space 3}0.935{col 62}{space 4}-1.748523{col 75}{space 3} 1.899026
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-.5614854{col 34}{space 2} 2.462456{col 45}{space 1}   -0.23{col 54}{space 3}0.820{col 62}{space 4}-5.396158{col 75}{space 3} 4.273188
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0160183{col 34}{space 2} .0077825{col 45}{space 1}    2.06{col 54}{space 3}0.040{col 62}{space 4} .0007386{col 75}{space 3}  .031298
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2}  .748156{col 34}{space 2} 3.904304{col 45}{space 1}    0.19{col 54}{space 3}0.848{col 62}{space 4}-6.917375{col 75}{space 3} 8.413687
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 123 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}    21,573
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    701{txt}){col 67}= {res}      1.73
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0463
+{txt}{col 51}R-squared{col 67}= {res}    0.6762
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6133
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0067
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       702{txt}{col 51}Root MSE{col 67}= {res}    2.0113
+
+{txt}{ralign 86:(Std. err. adjusted for {res:702} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}            delay_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0004509{col 34}{space 2} .0008073{col 45}{space 1}    0.56{col 54}{space 3}0.577{col 62}{space 4} -.001134{col 75}{space 3} .0020359
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2} .2059079{col 34}{space 2} .0800021{col 45}{space 1}    2.57{col 54}{space 3}0.010{col 62}{space 4} .0488354{col 75}{space 3} .3629804
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0006564{col 34}{space 2} .0001615{col 45}{space 1}   -4.06{col 54}{space 3}0.000{col 62}{space 4}-.0009735{col 75}{space 3}-.0003394
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.1226475{col 34}{space 2} .1377623{col 45}{space 1}   -0.89{col 54}{space 3}0.374{col 62}{space 4}-.3931236{col 75}{space 3} .1478286
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.2862958{col 34}{space 2} .3357133{col 45}{space 1}   -0.85{col 54}{space 3}0.394{col 62}{space 4}-.9454198{col 75}{space 3} .3728281
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.0877649{col 34}{space 2} .9012578{col 45}{space 1}   -0.10{col 54}{space 3}0.922{col 62}{space 4}-1.857253{col 75}{space 3} 1.681723
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2}-.0291292{col 34}{space 2} .1499047{col 45}{space 1}   -0.19{col 54}{space 3}0.846{col 62}{space 4}-.3234452{col 75}{space 3} .2651868
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2} .6964083{col 34}{space 2} .4145574{col 45}{space 1}    1.68{col 54}{space 3}0.093{col 62}{space 4}-.1175146{col 75}{space 3} 1.510331
+{txt}{space 16}cash {c |}{col 22}{res}{space 2} .0153052{col 34}{space 2}  .628982{col 45}{space 1}    0.02{col 54}{space 3}0.981{col 62}{space 4}-1.219609{col 75}{space 3} 1.250219
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2}-.9793479{col 34}{space 2} 1.044949{col 45}{space 1}   -0.94{col 54}{space 3}0.349{col 62}{space 4}-3.030953{col 75}{space 3} 1.072258
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2}-.0009415{col 34}{space 2} .0012542{col 45}{space 1}   -0.75{col 54}{space 3}0.453{col 62}{space 4} -.003404{col 75}{space 3}  .001521
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2}-.2653475{col 34}{space 2} .6279592{col 45}{space 1}   -0.42{col 54}{space 3}0.673{col 62}{space 4}-1.498254{col 75}{space 3} .9675586
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2} -.338915{col 34}{space 2} 1.606915{col 45}{space 1}   -0.21{col 54}{space 3}0.833{col 62}{space 4}-3.493858{col 75}{space 3} 2.816027
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0068401{col 34}{space 2} .0042141{col 45}{space 1}    1.62{col 54}{space 3}0.105{col 62}{space 4}-.0014335{col 75}{space 3} .0151138
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2} .6787408{col 34}{space 2} 2.166031{col 45}{space 1}    0.31{col 54}{space 3}0.754{col 62}{space 4}-3.573944{col 75}{space 3} 4.931426
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      702{col 27}{space 1}      702{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     2782{col 27}{space 1}        1{col 39}{result}{space 1}     2781{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 516 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 128 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,820
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    530{txt}){col 67}= {res}      2.22
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0065
+{txt}{col 51}R-squared{col 67}= {res}    0.4158
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.2217
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0086
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       531{txt}{col 51}Root MSE{col 67}= {res}    0.3057
+
+{txt}{ralign 86:(Std. err. adjusted for {res:531} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}       extra_cost_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2} .0002952{col 34}{space 2} .0001362{col 45}{space 1}    2.17{col 54}{space 3}0.031{col 62}{space 4} .0000276{col 75}{space 3} .0005628
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2}-.0125386{col 34}{space 2} .0193603{col 45}{space 1}   -0.65{col 54}{space 3}0.517{col 62}{space 4} -.050571{col 75}{space 3} .0254938
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}-.0000129{col 34}{space 2} .0000286{col 45}{space 1}   -0.45{col 54}{space 3}0.652{col 62}{space 4}-.0000691{col 75}{space 3} .0000433
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2} .0437246{col 34}{space 2}  .033959{col 45}{space 1}    1.29{col 54}{space 3}0.198{col 62}{space 4}-.0229862{col 75}{space 3} .1104354
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.1275205{col 34}{space 2} .0901257{col 45}{space 1}   -1.41{col 54}{space 3}0.158{col 62}{space 4}-.3045679{col 75}{space 3} .0495269
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2} .0254673{col 34}{space 2} .1900047{col 45}{space 1}    0.13{col 54}{space 3}0.893{col 62}{space 4}-.3477874{col 75}{space 3} .3987219
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2}-.0292874{col 34}{space 2} .0358937{col 45}{space 1}   -0.82{col 54}{space 3}0.415{col 62}{space 4}-.0997988{col 75}{space 3} .0412241
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2}-.2343666{col 34}{space 2} .1306884{col 45}{space 1}   -1.79{col 54}{space 3}0.073{col 62}{space 4}-.4910974{col 75}{space 3} .0223643
+{txt}{space 16}cash {c |}{col 22}{res}{space 2}-.0494389{col 34}{space 2}  .142196{col 45}{space 1}   -0.35{col 54}{space 3}0.728{col 62}{space 4}-.3287758{col 75}{space 3} .2298981
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2} .1541328{col 34}{space 2} .2459756{col 45}{space 1}    0.63{col 54}{space 3}0.531{col 62}{space 4} -.329074{col 75}{space 3} .6373396
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2} .0014547{col 34}{space 2} .0007098{col 45}{space 1}    2.05{col 54}{space 3}0.041{col 62}{space 4} .0000604{col 75}{space 3} .0028491
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2} .0262136{col 34}{space 2} .1229429{col 45}{space 1}    0.21{col 54}{space 3}0.831{col 62}{space 4}-.2153017{col 75}{space 3} .2677288
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2}-.1298603{col 34}{space 2} .6299863{col 45}{space 1}   -0.21{col 54}{space 3}0.837{col 62}{space 4}-1.367437{col 75}{space 3} 1.107716
+{txt}{space 17}emp {c |}{col 22}{res}{space 2}  .000083{col 34}{space 2} .0004967{col 45}{space 1}    0.17{col 54}{space 3}0.867{col 62}{space 4}-.0008927{col 75}{space 3} .0010587
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2} 1.356393{col 34}{space 2} .5947028{col 45}{space 1}    2.28{col 54}{space 3}0.023{col 62}{space 4} .1881295{col 75}{space 3} 2.524657
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      531{col 27}{space 1}      531{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1896{col 27}{space 1}        1{col 39}{result}{space 1}     1895{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}(dropped 496 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 130 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     9,960
+{txt}Absorbing 3 HDFE groups{col 51}F({res}  14{txt},{res}    542{txt}){col 67}= {res}      0.81
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.6633
+{txt}{col 51}R-squared{col 67}= {res}    0.3559
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.1403
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0069
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       543{txt}{col 51}Root MSE{col 67}= {res}    0.6320
+
+{txt}{ralign 86:(Std. err. adjusted for {res:543} clusters in {res:gvkey})}
+{hline 21}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 22}{c |}{col 34}    Robust
+{col 1}      extra_delay_ln{col 22}{c |} Coefficient{col 34}  std. err.{col 46}      t{col 54}   P>|t|{col 62}     [95% con{col 75}f. interval]
+{hline 21}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 7}totnumties_DR {c |}{col 22}{res}{space 2}-.0000822{col 34}{space 2} .0005029{col 45}{space 1}   -0.16{col 54}{space 3}0.870{col 62}{space 4}-.0010701{col 75}{space 3} .0009058
+{txt}{space 14}1.post {c |}{col 22}{res}{space 2}-.0128109{col 34}{space 2} .0365882{col 45}{space 1}   -0.35{col 54}{space 3}0.726{col 62}{space 4}-.0846829{col 75}{space 3}  .059061
+{txt}{space 20} {c |}
+post#c.totnumties_DR {c |}
+{space 18}1  {c |}{col 22}{res}{space 2}  .000047{col 34}{space 2} .0000587{col 45}{space 1}    0.80{col 54}{space 3}0.423{col 62}{space 4}-.0000683{col 75}{space 3} .0001624
+{txt}{space 20} {c |}
+{space 13}gov_dum {c |}{col 22}{res}{space 2}-.1786412{col 34}{space 2} .1019784{col 45}{space 1}   -1.75{col 54}{space 3}0.080{col 62}{space 4}-.3789625{col 75}{space 3}   .02168
+{txt}{space 8}boardsize_ln {c |}{col 22}{res}{space 2}-.1589199{col 34}{space 2} .1385577{col 45}{space 1}   -1.15{col 54}{space 3}0.252{col 62}{space 4}-.4310958{col 75}{space 3} .1132559
+{txt}{space 3}independent_board {c |}{col 22}{res}{space 2}-.1125355{col 34}{space 2} .4942546{col 45}{space 1}   -0.23{col 54}{space 3}0.820{col 62}{space 4}-1.083425{col 75}{space 3} .8583538
+{txt}{space 11}firm_size {c |}{col 22}{res}{space 2} .0825587{col 34}{space 2} .0828087{col 45}{space 1}    1.00{col 54}{space 3}0.319{col 62}{space 4}-.0801066{col 75}{space 3}  .245224
+{txt}{space 12}firm_age {c |}{col 22}{res}{space 2}-.1031584{col 34}{space 2} .1569638{col 45}{space 1}   -0.66{col 54}{space 3}0.511{col 62}{space 4}-.4114903{col 75}{space 3} .2051736
+{txt}{space 16}cash {c |}{col 22}{res}{space 2}-.1945151{col 34}{space 2} .2943841{col 45}{space 1}   -0.66{col 54}{space 3}0.509{col 62}{space 4}-.7727885{col 75}{space 3} .3837584
+{txt}{space 10}ppe_assets {c |}{col 22}{res}{space 2} .2768944{col 34}{space 2} .6681635{col 45}{space 1}    0.41{col 54}{space 3}0.679{col 62}{space 4}-1.035613{col 75}{space 3} 1.589402
+{txt}{space 7}profitability {c |}{col 22}{res}{space 2}-.0003794{col 34}{space 2} .0013112{col 45}{space 1}   -0.29{col 54}{space 3}0.772{col 62}{space 4} -.002955{col 75}{space 3} .0021963
+{txt}{space 17}HHI {c |}{col 22}{res}{space 2}-.0077847{col 34}{space 2}  .342627{col 45}{space 1}   -0.02{col 54}{space 3}0.982{col 62}{space 4}-.6808243{col 75}{space 3} .6652548
+{txt}{space 12}capex_at {c |}{col 22}{res}{space 2} .6146746{col 34}{space 2} 1.371638{col 45}{space 1}    0.45{col 54}{space 3}0.654{col 62}{space 4}-2.079703{col 75}{space 3} 3.309052
+{txt}{space 17}emp {c |}{col 22}{res}{space 2} .0006843{col 34}{space 2} .0017991{col 45}{space 1}    0.38{col 54}{space 3}0.704{col 62}{space 4}-.0028497{col 75}{space 3} .0042182
+{txt}{space 15}_cons {c |}{col 22}{res}{space 2} .7055427{col 34}{space 2} .9584669{col 45}{space 1}    0.74{col 54}{space 3}0.462{col 62}{space 4}-1.177222{col 75}{space 3} 2.588308
+{txt}{hline 21}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}       gvkey{col 14}{c |}{space 1}      543{col 27}{space 1}      543{col 39}{result}{space 1}        0{col 53}{text}*{col 54}{c |}
+{res}{col 1}{text}  directorid{col 14}{c |}{space 1}     1932{col 27}{space 1}        1{col 39}{result}{space 1}     1931{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+* = FE nested within cluster; treated as redundant for DoF computation
+{res}{txt}
+{com}. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}D:\dataset\board networks and procurement\firm-connection-in-procurement\Stacked Deaths and Retirements binary and continous Treatment DiD.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}22 Nov 2025, 13:44:11
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
