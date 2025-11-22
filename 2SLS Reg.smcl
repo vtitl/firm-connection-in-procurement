@@ -1,0 +1,905 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}D:\dataset\board networks and procurement\firm-connection-in-procurement\2SLS Reg.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}22 Nov 2025, 12:40:01
+{txt}
+{com}. 
+. *without IV numIndustries_sum, significant at 5-10% level
+. 
+. ***First stage
+. reghdfe totnumties_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     7,564
+{txt}Absorbing 2 HDFE groups{col 51}F({res}  14{txt},{res}    785{txt}){col 67}= {res}    179.54
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.6357
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.6320
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.5995
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       786{txt}{col 51}Root MSE{col 67}= {res}    0.5258
+
+{txt}{ralign 83:(Std. err. adjusted for {res:786} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}    totnumties_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}MBA_dum_sum {c |}{col 19}{res}{space 2} .0449026{col 31}{space 2} .0090917{col 42}{space 1}    4.94{col 51}{space 3}0.000{col 59}{space 4} .0270557{col 72}{space 3} .0627496
+{txt}{space 6}IVY_dum_sum {c |}{col 19}{res}{space 2} .0494885{col 31}{space 2} .0079165{col 42}{space 1}    6.25{col 51}{space 3}0.000{col 59}{space 4} .0339483{col 72}{space 3} .0650286
+{txt}numIndustries_sum {c |}{col 19}{res}{space 2} .0222769{col 31}{space 2} .0019888{col 42}{space 1}   11.20{col 51}{space 3}0.000{col 59}{space 4} .0183728{col 72}{space 3} .0261809
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .1237171{col 31}{space 2} .0290823{col 42}{space 1}    4.25{col 51}{space 3}0.000{col 59}{space 4} .0666288{col 72}{space 3} .1808055
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2} .8547373{col 31}{space 2} .1137257{col 42}{space 1}    7.52{col 51}{space 3}0.000{col 59}{space 4} .6314948{col 72}{space 3}  1.07798
+{txt}independent_board {c |}{col 19}{res}{space 2} 1.165726{col 31}{space 2} .2542648{col 42}{space 1}    4.58{col 51}{space 3}0.000{col 59}{space 4} .6666067{col 72}{space 3} 1.664846
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .0943163{col 31}{space 2} .0116273{col 42}{space 1}    8.11{col 51}{space 3}0.000{col 59}{space 4} .0714919{col 72}{space 3} .1171406
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}-.0739195{col 31}{space 2} .0205415{col 42}{space 1}   -3.60{col 51}{space 3}0.000{col 59}{space 4}-.1142424{col 72}{space 3}-.0335967
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} .3067942{col 31}{space 2} .0992545{col 42}{space 1}    3.09{col 51}{space 3}0.002{col 59}{space 4} .1119585{col 72}{space 3} .5016299
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.3316941{col 31}{space 2} .1386693{col 42}{space 1}   -2.39{col 51}{space 3}0.017{col 59}{space 4}-.6039007{col 72}{space 3}-.0594876
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0016972{col 31}{space 2} .0001183{col 42}{space 1}   14.34{col 51}{space 3}0.000{col 59}{space 4} .0014649{col 72}{space 3} .0019294
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0491831{col 31}{space 2}   .08278{col 42}{space 1}    0.59{col 51}{space 3}0.553{col 59}{space 4}-.1133133{col 72}{space 3} .2116795
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2} .4805837{col 31}{space 2} .4205898{col 42}{space 1}    1.14{col 51}{space 3}0.254{col 59}{space 4}  -.34503{col 72}{space 3} 1.306197
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0000716{col 31}{space 2} .0001059{col 42}{space 1}    0.68{col 51}{space 3}0.499{col 59}{space 4}-.0001363{col 72}{space 3} .0002794
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 3.062196{col 31}{space 2} .3327515{col 42}{space 1}    9.20{col 51}{space 3}0.000{col 59}{space 4} 2.409008{col 72}{space 3} 3.715384
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. 
+. reghdfe numcontract_ln  MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     7,564
+{txt}Absorbing 2 HDFE groups{col 51}F({res}  14{txt},{res}    785{txt}){col 67}= {res}     10.91
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.3546
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.3479
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.1467
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       786{txt}{col 51}Root MSE{col 67}= {res}    0.9996
+
+{txt}{ralign 83:(Std. err. adjusted for {res:786} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}   numcontract_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}MBA_dum_sum {c |}{col 19}{res}{space 2}   .02104{col 31}{space 2} .0235755{col 42}{space 1}    0.89{col 51}{space 3}0.372{col 59}{space 4}-.0252385{col 72}{space 3} .0673185
+{txt}{space 6}IVY_dum_sum {c |}{col 19}{res}{space 2}  .022784{col 31}{space 2} .0211493{col 42}{space 1}    1.08{col 51}{space 3}0.282{col 59}{space 4}-.0187319{col 72}{space 3}    .0643
+{txt}numIndustries_sum {c |}{col 19}{res}{space 2} .0063215{col 31}{space 2} .0041653{col 42}{space 1}    1.52{col 51}{space 3}0.130{col 59}{space 4} -.001855{col 72}{space 3} .0144979
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .0863293{col 31}{space 2} .0545603{col 42}{space 1}    1.58{col 51}{space 3}0.114{col 59}{space 4}-.0207721{col 72}{space 3} .1934306
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.1459004{col 31}{space 2} .1459193{col 42}{space 1}   -1.00{col 51}{space 3}0.318{col 59}{space 4}-.4323385{col 72}{space 3} .1405378
+{txt}independent_board {c |}{col 19}{res}{space 2}-.2506113{col 31}{space 2} .3131964{col 42}{space 1}   -0.80{col 51}{space 3}0.424{col 59}{space 4}-.8654129{col 72}{space 3} .3641904
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}  .177791{col 31}{space 2}  .024707{col 42}{space 1}    7.20{col 51}{space 3}0.000{col 59}{space 4} .1292915{col 72}{space 3} .2262906
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .0451965{col 31}{space 2} .0432393{col 42}{space 1}    1.05{col 51}{space 3}0.296{col 59}{space 4}-.0396818{col 72}{space 3} .1300748
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.3530243{col 31}{space 2} .1654329{col 42}{space 1}   -2.13{col 51}{space 3}0.033{col 59}{space 4}-.6777675{col 72}{space 3} -.028281
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.6882119{col 31}{space 2} .2186425{col 42}{space 1}   -3.15{col 51}{space 3}0.002{col 59}{space 4}-1.117405{col 72}{space 3}-.2590186
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}  .000845{col 31}{space 2} .0004161{col 42}{space 1}    2.03{col 51}{space 3}0.043{col 59}{space 4} .0000281{col 72}{space 3} .0016618
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0970728{col 31}{space 2} .1858133{col 42}{space 1}    0.52{col 51}{space 3}0.602{col 59}{space 4} -.267677{col 72}{space 3} .4618227
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.6184184{col 31}{space 2} .7314937{col 42}{space 1}   -0.85{col 51}{space 3}0.398{col 59}{space 4}-2.054334{col 72}{space 3} .8174968
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0006791{col 31}{space 2} .0005491{col 42}{space 1}    1.24{col 51}{space 3}0.216{col 59}{space 4}-.0003986{col 72}{space 3} .0017569
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}-.1095305{col 31}{space 2} .3874943{col 42}{space 1}   -0.28{col 51}{space 3}0.778{col 59}{space 4}-.8701781{col 72}{space 3} .6511171
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. 
+. reghdfe expected_cost_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     7,564
+{txt}Absorbing 2 HDFE groups{col 51}F({res}  14{txt},{res}    785{txt}){col 67}= {res}     12.51
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.3274
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.3204
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0920
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       786{txt}{col 51}Root MSE{col 67}= {res}    5.0857
+
+{txt}{ralign 83:(Std. err. adjusted for {res:786} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1} expected_cost_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}MBA_dum_sum {c |}{col 19}{res}{space 2} .1178412{col 31}{space 2} .0986765{col 42}{space 1}    1.19{col 51}{space 3}0.233{col 59}{space 4}-.0758597{col 72}{space 3} .3115422
+{txt}{space 6}IVY_dum_sum {c |}{col 19}{res}{space 2}  .082953{col 31}{space 2} .0882942{col 42}{space 1}    0.94{col 51}{space 3}0.348{col 59}{space 4}-.0903678{col 72}{space 3} .2562738
+{txt}numIndustries_sum {c |}{col 19}{res}{space 2} .0325367{col 31}{space 2} .0179626{col 42}{space 1}    1.81{col 51}{space 3}0.070{col 59}{space 4}-.0027237{col 72}{space 3} .0677971
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .6816926{col 31}{space 2} .2472565{col 42}{space 1}    2.76{col 51}{space 3}0.006{col 59}{space 4} .1963303{col 72}{space 3} 1.167055
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.9707494{col 31}{space 2} .6696856{col 42}{space 1}   -1.45{col 51}{space 3}0.148{col 59}{space 4}-2.285336{col 72}{space 3} .3438371
+{txt}independent_board {c |}{col 19}{res}{space 2}-.7291105{col 31}{space 2} 1.453034{col 42}{space 1}   -0.50{col 51}{space 3}0.616{col 59}{space 4}-3.581403{col 72}{space 3} 2.123182
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .6605357{col 31}{space 2} .0994021{col 42}{space 1}    6.65{col 51}{space 3}0.000{col 59}{space 4} .4654104{col 72}{space 3} .8556611
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1246424{col 31}{space 2}  .196975{col 42}{space 1}    0.63{col 51}{space 3}0.527{col 59}{space 4}-.2620177{col 72}{space 3} .5113025
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} -1.51982{col 31}{space 2} .7674832{col 42}{space 1}   -1.98{col 51}{space 3}0.048{col 59}{space 4}-3.026383{col 72}{space 3}-.0132581
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.559523{col 31}{space 2} 1.062234{col 42}{space 1}   -2.41{col 51}{space 3}0.016{col 59}{space 4}-4.644679{col 72}{space 3}-.4743667
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0036312{col 31}{space 2} .0011456{col 42}{space 1}    3.17{col 51}{space 3}0.002{col 59}{space 4} .0013823{col 72}{space 3} .0058801
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1100512{col 31}{space 2} .7712768{col 42}{space 1}    0.14{col 51}{space 3}0.887{col 59}{space 4}-1.403958{col 72}{space 3}  1.62406
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-5.527003{col 31}{space 2} 3.397176{col 42}{space 1}   -1.63{col 51}{space 3}0.104{col 59}{space 4}-12.19563{col 72}{space 3} 1.141621
+{txt}{space 14}emp {c |}{col 19}{res}{space 2}  .001106{col 31}{space 2} .0012851{col 42}{space 1}    0.86{col 51}{space 3}0.390{col 59}{space 4}-.0014166{col 72}{space 3} .0036285
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2} 2.703894{col 31}{space 2} 1.795101{col 42}{space 1}    1.51{col 51}{space 3}0.132{col 59}{space 4}-.8198723{col 72}{space 3}  6.22766
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. reghdfe total_cost_all_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}HDFE Linear regression{col 51}Number of obs{col 67}= {res}     7,564
+{txt}Absorbing 2 HDFE groups{col 51}F({res}  14{txt},{res}    785{txt}){col 67}= {res}     12.87
+{txt}Statistics robust to heteroskedasticity{col 51}Prob > F{col 67}= {res}    0.0000
+{txt}{col 51}R-squared{col 67}= {res}    0.3289
+{txt}{col 51}Adj R-squared{col 67}= {res}    0.3219
+{txt}{col 51}Within R-sq.{col 67}= {res}    0.0932
+{txt}{col 1}Number of clusters ({res}gvkey{txt}) {col 30}= {res}       786{txt}{col 51}Root MSE{col 67}= {res}    5.1621
+
+{txt}{ralign 83:(Std. err. adjusted for {res:786} clusters in {res:gvkey})}
+{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}total_cost_all_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 6}MBA_dum_sum {c |}{col 19}{res}{space 2} .1219965{col 31}{space 2} .1000908{col 42}{space 1}    1.22{col 51}{space 3}0.223{col 59}{space 4}-.0744807{col 72}{space 3} .3184737
+{txt}{space 6}IVY_dum_sum {c |}{col 19}{res}{space 2} .0887927{col 31}{space 2} .0892943{col 42}{space 1}    0.99{col 51}{space 3}0.320{col 59}{space 4}-.0864912{col 72}{space 3} .2640766
+{txt}numIndustries_sum {c |}{col 19}{res}{space 2} .0329726{col 31}{space 2} .0182039{col 42}{space 1}    1.81{col 51}{space 3}0.070{col 59}{space 4}-.0027616{col 72}{space 3} .0687067
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .7123973{col 31}{space 2} .2497806{col 42}{space 1}    2.85{col 51}{space 3}0.004{col 59}{space 4} .2220804{col 72}{space 3} 1.202714
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-1.031191{col 31}{space 2} .6764794{col 42}{space 1}   -1.52{col 51}{space 3}0.128{col 59}{space 4}-2.359113{col 72}{space 3} .2967319
+{txt}independent_board {c |}{col 19}{res}{space 2}-.7607599{col 31}{space 2} 1.473562{col 42}{space 1}   -0.52{col 51}{space 3}0.606{col 59}{space 4}-3.653349{col 72}{space 3} 2.131829
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .6712285{col 31}{space 2} .1010472{col 42}{space 1}    6.64{col 51}{space 3}0.000{col 59}{space 4} .4728738{col 72}{space 3} .8695831
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1370194{col 31}{space 2} .2007262{col 42}{space 1}    0.68{col 51}{space 3}0.495{col 59}{space 4}-.2570041{col 72}{space 3}  .531043
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-1.632639{col 31}{space 2} .7812647{col 42}{space 1}   -2.09{col 51}{space 3}0.037{col 59}{space 4}-3.166254{col 72}{space 3}-.0990236
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.762274{col 31}{space 2}  1.07397{col 42}{space 1}   -2.57{col 51}{space 3}0.010{col 59}{space 4}-4.870468{col 72}{space 3}  -.65408
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0037068{col 31}{space 2} .0011659{col 42}{space 1}    3.18{col 51}{space 3}0.002{col 59}{space 4} .0014181{col 72}{space 3} .0059954
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .2044556{col 31}{space 2} .7825442{col 42}{space 1}    0.26{col 51}{space 3}0.794{col 59}{space 4}-1.331671{col 72}{space 3} 1.740582
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-5.427225{col 31}{space 2} 3.413197{col 42}{space 1}   -1.59{col 51}{space 3}0.112{col 59}{space 4} -12.1273{col 72}{space 3} 1.272849
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0010519{col 31}{space 2} .0012709{col 42}{space 1}    0.83{col 51}{space 3}0.408{col 59}{space 4}-.0014429{col 72}{space 3} .0035466
+{txt}{space 12}_cons {c |}{col 19}{res}{space 2}  2.80807{col 31}{space 2} 1.818983{col 42}{space 1}    1.54{col 51}{space 3}0.123{col 59}{space 4}-.7625768{col 72}{space 3} 6.378717
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. 
+. 
+. ***2SLS with GMM option
+. ivreghdfe numcontract_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}   12.71
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res}   8765.2173{txt}{col 55}Centered R2   = {res}  0.1392
+{txt}Total (uncentered) SS   = {res}   8765.2173{txt}{col 55}Uncentered R2 = {res}  0.1392
+{txt}Residual SS             = {res} 7544.743104{txt}{col 55}Root MSE      = {res}   1.004
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}   numcontract_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .3327922{col 31}{space 2} .1436086{col 42}{space 1}    2.32{col 51}{space 3}0.021{col 59}{space 4} .0508899{col 72}{space 3} .6146946
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .0440485{col 31}{space 2} .0573259{col 42}{space 1}    0.77{col 51}{space 3}0.442{col 59}{space 4}-.0684817{col 72}{space 3} .1565787
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.4301752{col 31}{space 2} .2387395{col 42}{space 1}   -1.80{col 51}{space 3}0.072{col 59}{space 4}-.8988185{col 72}{space 3} .0384681
+{txt}independent_board {c |}{col 19}{res}{space 2}-.6467117{col 31}{space 2} .3705254{col 42}{space 1}   -1.75{col 51}{space 3}0.081{col 59}{space 4} -1.37405{col 72}{space 3} .0806262
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .1454207{col 31}{space 2} .0316642{col 42}{space 1}    4.59{col 51}{space 3}0.000{col 59}{space 4} .0832641{col 72}{space 3} .2075773
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .0687167{col 31}{space 2} .0449446{col 42}{space 1}    1.53{col 51}{space 3}0.127{col 59}{space 4}-.0195091{col 72}{space 3} .1569424
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.4611298{col 31}{space 2} .1739513{col 42}{space 1}   -2.65{col 51}{space 3}0.008{col 59}{space 4}-.8025944{col 72}{space 3}-.1196651
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.5812679{col 31}{space 2} .2297097{col 42}{space 1}   -2.53{col 51}{space 3}0.012{col 59}{space 4}-1.032186{col 72}{space 3}  -.13035
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0002885{col 31}{space 2} .0004763{col 42}{space 1}    0.61{col 51}{space 3}0.545{col 59}{space 4}-.0006465{col 72}{space 3} .0012235
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0810979{col 31}{space 2} .1868182{col 42}{space 1}    0.43{col 51}{space 3}0.664{col 59}{space 4}-.2856244{col 72}{space 3} .4478202
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.7740595{col 31}{space 2} .7368074{col 42}{space 1}   -1.05{col 51}{space 3}0.294{col 59}{space 4}-2.220406{col 72}{space 3} .6722865
+{txt}{space 14}emp {c |}{col 19}{res}{space 2}  .000653{col 31}{space 2}  .000537{col 42}{space 1}    1.22{col 51}{space 3}0.224{col 59}{space 4}-.0004012{col 72}{space 3} .0017072
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.177
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.9152
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe renegotiation_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}    9.44
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res}  6482.53052{txt}{col 55}Centered R2   = {res}  0.1096
+{txt}Total (uncentered) SS   = {res}  6482.53052{txt}{col 55}Uncentered R2 = {res}  0.1096
+{txt}Residual SS             = {res} 5772.312998{txt}{col 55}Root MSE      = {res}   .8781
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1} renegotiation_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .1900017{col 31}{space 2} .1254252{col 42}{space 1}    1.51{col 51}{space 3}0.130{col 59}{space 4}-.0562067{col 72}{space 3} .4362101
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .0784408{col 31}{space 2} .0462597{col 42}{space 1}    1.70{col 51}{space 3}0.090{col 59}{space 4}-.0123666{col 72}{space 3} .1692483
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.2110411{col 31}{space 2} .2067036{col 42}{space 1}   -1.02{col 51}{space 3}0.308{col 59}{space 4}-.6167982{col 72}{space 3} .1947161
+{txt}independent_board {c |}{col 19}{res}{space 2}-.5329673{col 31}{space 2} .3097502{col 42}{space 1}   -1.72{col 51}{space 3}0.086{col 59}{space 4}-1.141004{col 72}{space 3} .0750695
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .1053003{col 31}{space 2} .0271965{col 42}{space 1}    3.87{col 51}{space 3}0.000{col 59}{space 4} .0519139{col 72}{space 3} .1586867
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .0285081{col 31}{space 2} .0401643{col 42}{space 1}    0.71{col 51}{space 3}0.478{col 59}{space 4}-.0503341{col 72}{space 3} .1073503
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.5057602{col 31}{space 2} .1373333{col 42}{space 1}   -3.68{col 51}{space 3}0.000{col 59}{space 4}-.7753441{col 72}{space 3}-.2361762
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.5895072{col 31}{space 2} .1900073{col 42}{space 1}   -3.10{col 51}{space 3}0.002{col 59}{space 4}-.9624899{col 72}{space 3}-.2165246
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0002119{col 31}{space 2} .0004651{col 42}{space 1}    0.46{col 51}{space 3}0.649{col 59}{space 4} -.000701{col 72}{space 3} .0011248
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1504302{col 31}{space 2}  .164104{col 42}{space 1}    0.92{col 51}{space 3}0.360{col 59}{space 4}-.1717045{col 72}{space 3} .4725649
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.6285413{col 31}{space 2} .5256598{col 42}{space 1}   -1.20{col 51}{space 3}0.232{col 59}{space 4}-1.660406{col 72}{space 3} .4033238
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0005715{col 31}{space 2} .0004155{col 42}{space 1}    1.38{col 51}{space 3}0.169{col 59}{space 4}-.0002441{col 72}{space 3}  .001387
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.123
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.9404
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe expected_cost_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}   14.56
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 213213.2026{txt}{col 55}Centered R2   = {res}  0.0831
+{txt}Total (uncentered) SS   = {res} 213213.2026{txt}{col 55}Uncentered R2 = {res}  0.0831
+{txt}Residual SS             = {res} 195489.7542{txt}{col 55}Root MSE      = {res}    5.11
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1} expected_cost_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} 1.622505{col 31}{space 2} .6246198{col 42}{space 1}    2.60{col 51}{space 3}0.010{col 59}{space 4} .3963826{col 72}{space 3} 2.848628
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .4721406{col 31}{space 2} .2609448{col 42}{space 1}    1.81{col 51}{space 3}0.071{col 59}{space 4}-.0400915{col 72}{space 3} .9843728
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-2.351374{col 31}{space 2} 1.082711{col 42}{space 1}   -2.17{col 51}{space 3}0.030{col 59}{space 4}-4.476725{col 72}{space 3}-.2260237
+{txt}independent_board {c |}{col 19}{res}{space 2}-2.647585{col 31}{space 2} 1.750998{col 42}{space 1}   -1.51{col 51}{space 3}0.131{col 59}{space 4}-6.084778{col 72}{space 3} .7896084
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .5033592{col 31}{space 2} .1321525{col 42}{space 1}    3.81{col 51}{space 3}0.000{col 59}{space 4} .2439451{col 72}{space 3} .7627733
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .2439902{col 31}{space 2} .2047246{col 42}{space 1}    1.19{col 51}{space 3}0.234{col 59}{space 4}-.1578822{col 72}{space 3} .6458625
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-2.035481{col 31}{space 2} .8106489{col 42}{space 1}   -2.51{col 51}{space 3}0.012{col 59}{space 4}-3.626777{col 72}{space 3}-.4441849
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.055978{col 31}{space 2} 1.099202{col 42}{space 1}   -1.87{col 51}{space 3}0.062{col 59}{space 4}-4.213702{col 72}{space 3} .1017454
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}  .000907{col 31}{space 2} .0015967{col 42}{space 1}    0.57{col 51}{space 3}0.570{col 59}{space 4}-.0022274{col 72}{space 3} .0040413
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .0095957{col 31}{space 2} .7812935{col 42}{space 1}    0.01{col 51}{space 3}0.990{col 59}{space 4}-1.524076{col 72}{space 3} 1.543268
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-6.287795{col 31}{space 2} 3.444053{col 42}{space 1}   -1.83{col 51}{space 3}0.068{col 59}{space 4}-13.04844{col 72}{space 3}  .472848
+{txt}{space 14}emp {c |}{col 19}{res}{space 2}  .000984{col 31}{space 2} .0012311{col 42}{space 1}    0.80{col 51}{space 3}0.424{col 59}{space 4}-.0014327{col 72}{space 3} .0034007
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.223
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.8944
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe total_cost_all_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}   14.95
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 219956.3953{txt}{col 55}Centered R2   = {res}  0.0834
+{txt}Total (uncentered) SS   = {res} 219956.3953{txt}{col 55}Uncentered R2 = {res}  0.0834
+{txt}Residual SS             = {res} 201601.7875{txt}{col 55}Root MSE      = {res}   5.189
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}total_cost_all_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} 1.664684{col 31}{space 2} .6301363{col 42}{space 1}    2.64{col 51}{space 3}0.008{col 59}{space 4} .4277322{col 72}{space 3} 2.901636
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .4976147{col 31}{space 2} .2636059{col 42}{space 1}    1.89{col 51}{space 3}0.059{col 59}{space 4}-.0198411{col 72}{space 3} 1.015071
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-2.445845{col 31}{space 2} 1.092703{col 42}{space 1}   -2.24{col 51}{space 3}0.025{col 59}{space 4}-4.590811{col 72}{space 3}-.3008796
+{txt}independent_board {c |}{col 19}{res}{space 2}-2.735762{col 31}{space 2} 1.774598{col 42}{space 1}   -1.54{col 51}{space 3}0.124{col 59}{space 4}-6.219281{col 72}{space 3}  .747757
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .5097878{col 31}{space 2} .1347098{col 42}{space 1}    3.78{col 51}{space 3}0.000{col 59}{space 4} .2453538{col 72}{space 3} .7742219
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .2589926{col 31}{space 2} .2083341{col 42}{space 1}    1.24{col 51}{space 3}0.214{col 59}{space 4}-.1499652{col 72}{space 3} .6679505
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-2.163538{col 31}{space 2} .8255472{col 42}{space 1}   -2.62{col 51}{space 3}0.009{col 59}{space 4}-3.784079{col 72}{space 3}-.5429964
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.245167{col 31}{space 2} 1.113613{col 42}{space 1}   -2.02{col 51}{space 3}0.044{col 59}{space 4}-4.431178{col 72}{space 3}-.0591558
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0009171{col 31}{space 2} .0016151{col 42}{space 1}    0.57{col 51}{space 3}0.570{col 59}{space 4}-.0022533{col 72}{space 3} .0040874
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1011989{col 31}{space 2} .7931367{col 42}{space 1}    0.13{col 51}{space 3}0.899{col 59}{space 4}-1.455721{col 72}{space 3} 1.658119
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-6.203081{col 31}{space 2} 3.463901{col 42}{space 1}   -1.79{col 51}{space 3}0.074{col 59}{space 4}-13.00269{col 72}{space 3} .5965231
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0009252{col 31}{space 2} .0012188{col 42}{space 1}    0.76{col 51}{space 3}0.448{col 59}{space 4}-.0014673{col 72}{space 3} .0033177
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.243
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.8858
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe cost_overrun_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7355
+{txt}{col 55}F( 12,   785) = {res}   10.18
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 158247.7305{txt}{col 55}Centered R2   = {res}  0.0823
+{txt}Total (uncentered) SS   = {res} 158247.7305{txt}{col 55}Uncentered R2 = {res}  0.0823
+{txt}Residual SS             = {res} 145226.2768{txt}{col 55}Root MSE      = {res}   4.467
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}  cost_overrun_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2}  .994845{col 31}{space 2} .5831351{col 42}{space 1}    1.71{col 51}{space 3}0.088{col 59}{space 4}-.1498438{col 72}{space 3} 2.139534
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .4997753{col 31}{space 2}  .225385{col 42}{space 1}    2.22{col 51}{space 3}0.027{col 59}{space 4} .0573467{col 72}{space 3} .9422038
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-1.355709{col 31}{space 2}  .989632{col 42}{space 1}   -1.37{col 51}{space 3}0.171{col 59}{space 4}-3.298348{col 72}{space 3} .5869291
+{txt}independent_board {c |}{col 19}{res}{space 2}-2.110657{col 31}{space 2} 1.396121{col 42}{space 1}   -1.51{col 51}{space 3}0.131{col 59}{space 4} -4.85123{col 72}{space 3} .6299154
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .4196653{col 31}{space 2} .1219082{col 42}{space 1}    3.44{col 51}{space 3}0.001{col 59}{space 4} .1803606{col 72}{space 3}   .65897
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1008018{col 31}{space 2} .1925446{col 42}{space 1}    0.52{col 51}{space 3}0.601{col 59}{space 4}-.2771614{col 72}{space 3}  .478765
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-2.603535{col 31}{space 2} .6933486{col 42}{space 1}   -3.76{col 51}{space 3}0.000{col 59}{space 4}-3.964572{col 72}{space 3}-1.242499
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-2.789963{col 31}{space 2} .9205503{col 42}{space 1}   -3.03{col 51}{space 3}0.003{col 59}{space 4}-4.596995{col 72}{space 3}-.9829315
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0002157{col 31}{space 2} .0017791{col 42}{space 1}    0.12{col 51}{space 3}0.904{col 59}{space 4}-.0032767{col 72}{space 3}  .003708
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .8126517{col 31}{space 2}  .729951{col 42}{space 1}    1.11{col 51}{space 3}0.266{col 59}{space 4}-.6202352{col 72}{space 3} 2.245539
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-2.527669{col 31}{space 2} 2.538416{col 42}{space 1}   -1.00{col 51}{space 3}0.320{col 59}{space 4}-7.510556{col 72}{space 3} 2.455218
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0019585{col 31}{space 2} .0015817{col 42}{space 1}    1.24{col 51}{space 3}0.216{col 59}{space 4}-.0011464{col 72}{space 3} .0050634
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 126.543
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 332.222
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  56.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.153
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.9264
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe extra_cost gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}(dropped 3 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 5 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   735{txt}{col 55}Number of obs = {res}    3632
+{txt}{col 55}F( 12,   734) = {res}    2.89
+{txt}{col 55}Prob > F      = {res}  0.0006
+{txt}Total (centered) SS     = {res} 3287.730872{txt}{col 55}Centered R2   = {res}  0.0066
+{txt}Total (uncentered) SS   = {res} 3287.730872{txt}{col 55}Uncentered R2 = {res}  0.0066
+{txt}Residual SS             = {res} 3266.073878{txt}{col 55}Root MSE      = {res}   .9581
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}       extra_cost{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .0445647{col 31}{space 2} .1015215{col 42}{space 1}    0.44{col 51}{space 3}0.661{col 59}{space 4}-.1547423{col 72}{space 3} .2438718
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .0468459{col 31}{space 2} .0330892{col 42}{space 1}    1.42{col 51}{space 3}0.157{col 59}{space 4}-.0181148{col 72}{space 3} .1118066
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.0245058{col 31}{space 2} .1611294{col 42}{space 1}   -0.15{col 51}{space 3}0.879{col 59}{space 4}-.3408353{col 72}{space 3} .2918236
+{txt}independent_board {c |}{col 19}{res}{space 2}-.1676854{col 31}{space 2} .2669121{col 42}{space 1}   -0.63{col 51}{space 3}0.530{col 59}{space 4}-.6916875{col 72}{space 3} .3563167
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}-.0013995{col 31}{space 2} .0177788{col 42}{space 1}   -0.08{col 51}{space 3}0.937{col 59}{space 4}-.0363028{col 72}{space 3} .0335038
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}-.0297553{col 31}{space 2} .0285035{col 42}{space 1}   -1.04{col 51}{space 3}0.297{col 59}{space 4}-.0857134{col 72}{space 3} .0262029
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-.1356174{col 31}{space 2} .1024017{col 42}{space 1}   -1.32{col 51}{space 3}0.186{col 59}{space 4}-.3366525{col 72}{space 3} .0654176
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-.4387807{col 31}{space 2} .1648643{col 42}{space 1}   -2.66{col 51}{space 3}0.008{col 59}{space 4}-.7624426{col 72}{space 3}-.1151189
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}-.0005925{col 31}{space 2} .0015258{col 42}{space 1}   -0.39{col 51}{space 3}0.698{col 59}{space 4}-.0035879{col 72}{space 3}  .002403
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2}  .178138{col 31}{space 2} .0923898{col 42}{space 1}    1.93{col 51}{space 3}0.054{col 59}{space 4}-.0032418{col 72}{space 3} .3595177
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-.0668267{col 31}{space 2} .4919152{col 42}{space 1}   -0.14{col 51}{space 3}0.892{col 59}{space 4}-1.032555{col 72}{space 3} .8989018
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0000372{col 31}{space 2} .0001891{col 42}{space 1}    0.20{col 51}{space 3}0.844{col 59}{space 4} -.000334{col 72}{space 3} .0004084
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71}  86.699
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 144.973
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  33.156
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   3.990
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.1360
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       52{col 27}{space 1}        0{col 39}{result}{space 1}       52{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe expected_duration_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}   13.71
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 65935.82884{txt}{col 55}Centered R2   = {res}  0.0958
+{txt}Total (uncentered) SS   = {res} 65935.82884{txt}{col 55}Uncentered R2 = {res}  0.0958
+{txt}Residual SS             = {res} 59616.15613{txt}{col 55}Root MSE      = {res}   2.822
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}expected_durat~ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .9132203{col 31}{space 2} .3582709{col 42}{space 1}    2.55{col 51}{space 3}0.011{col 59}{space 4} .2099379{col 72}{space 3} 1.616503
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .1727884{col 31}{space 2} .1522549{col 42}{space 1}    1.13{col 51}{space 3}0.257{col 59}{space 4}-.1260866{col 72}{space 3} .4716634
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-1.433726{col 31}{space 2} .6250993{col 42}{space 1}   -2.29{col 51}{space 3}0.022{col 59}{space 4} -2.66079{col 72}{space 3}-.2066618
+{txt}independent_board {c |}{col 19}{res}{space 2}-1.405239{col 31}{space 2} 1.011346{col 42}{space 1}   -1.39{col 51}{space 3}0.165{col 59}{space 4}-3.390501{col 72}{space 3} .5800225
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .3299958{col 31}{space 2} .0790616{col 42}{space 1}    4.17{col 51}{space 3}0.000{col 59}{space 4} .1747985{col 72}{space 3}  .485193
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1883369{col 31}{space 2} .1141785{col 42}{space 1}    1.65{col 51}{space 3}0.099{col 59}{space 4}-.0357943{col 72}{space 3} .4124681
+{txt}{space 13}cash {c |}{col 19}{res}{space 2} -.997697{col 31}{space 2} .4654747{col 42}{space 1}   -2.14{col 51}{space 3}0.032{col 59}{space 4}-1.911419{col 72}{space 3}-.0839746
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-1.432401{col 31}{space 2} .5851197{col 42}{space 1}   -2.45{col 51}{space 3}0.015{col 59}{space 4}-2.580986{col 72}{space 3}-.2838166
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0009881{col 31}{space 2} .0010199{col 42}{space 1}    0.97{col 51}{space 3}0.333{col 59}{space 4} -.001014{col 72}{space 3} .0029902
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1922187{col 31}{space 2} .4595285{col 42}{space 1}    0.42{col 51}{space 3}0.676{col 59}{space 4}-.7098315{col 72}{space 3} 1.094269
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-1.700385{col 31}{space 2} 1.892067{col 42}{space 1}   -0.90{col 51}{space 3}0.369{col 59}{space 4}-5.414494{col 72}{space 3} 2.013725
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0009179{col 31}{space 2} .0009057{col 42}{space 1}    1.01{col 51}{space 3}0.311{col 59}{space 4}-.0008601{col 72}{space 3} .0026958
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.665
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.7173
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe final_duration_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7564
+{txt}{col 55}F( 12,   785) = {res}   14.15
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 74269.96581{txt}{col 55}Centered R2   = {res}  0.0935
+{txt}Total (uncentered) SS   = {res} 74269.96581{txt}{col 55}Uncentered R2 = {res}  0.0935
+{txt}Residual SS             = {res} 67325.35761{txt}{col 55}Root MSE      = {res}   2.999
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}final_duration_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} 1.002327{col 31}{space 2} .3762659{col 42}{space 1}    2.66{col 51}{space 3}0.008{col 59}{space 4} .2637201{col 72}{space 3} 1.740933
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} .1924846{col 31}{space 2} .1597192{col 42}{space 1}    1.21{col 51}{space 3}0.229{col 59}{space 4}-.1210427{col 72}{space 3} .5060119
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-1.549306{col 31}{space 2} .6578822{col 42}{space 1}   -2.35{col 51}{space 3}0.019{col 59}{space 4}-2.840722{col 72}{space 3}-.2578892
+{txt}independent_board {c |}{col 19}{res}{space 2}-1.602832{col 31}{space 2} 1.076014{col 42}{space 1}   -1.49{col 51}{space 3}0.137{col 59}{space 4}-3.715038{col 72}{space 3} .5093735
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .3391419{col 31}{space 2} .0828915{col 42}{space 1}    4.09{col 51}{space 3}0.000{col 59}{space 4} .1764268{col 72}{space 3}  .501857
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1941466{col 31}{space 2}  .120784{col 42}{space 1}    1.61{col 51}{space 3}0.108{col 59}{space 4}-.0429513{col 72}{space 3} .4312445
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-1.173975{col 31}{space 2} .4912918{col 42}{space 1}   -2.39{col 51}{space 3}0.017{col 59}{space 4}-2.138376{col 72}{space 3}-.2095736
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-1.375782{col 31}{space 2}  .622568{col 42}{space 1}   -2.21{col 51}{space 3}0.027{col 59}{space 4}-2.597877{col 72}{space 3}-.1536865
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0004587{col 31}{space 2} .0009614{col 42}{space 1}    0.48{col 51}{space 3}0.633{col 59}{space 4}-.0014286{col 72}{space 3}  .002346
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1894934{col 31}{space 2} .4868677{col 42}{space 1}    0.39{col 51}{space 3}0.697{col 59}{space 4}-.7662233{col 72}{space 3}  1.14521
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2} -2.37342{col 31}{space 2} 1.995508{col 42}{space 1}   -1.19{col 51}{space 3}0.235{col 59}{space 4}-6.290582{col 72}{space 3} 1.543743
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0008803{col 31}{space 2} .0009047{col 42}{space 1}    0.97{col 51}{space 3}0.331{col 59}{space 4}-.0008957{col 72}{space 3} .0026563
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 129.356
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 345.755
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  58.901
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.625
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.7315
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe delay_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 4 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   786{txt}{col 55}Number of obs = {res}    7457
+{txt}{col 55}F( 12,   785) = {res}   12.73
+{txt}{col 55}Prob > F      = {res}  0.0000
+{txt}Total (centered) SS     = {res} 61536.44367{txt}{col 55}Centered R2   = {res}  0.0965
+{txt}Total (uncentered) SS   = {res} 61536.44367{txt}{col 55}Uncentered R2 = {res}  0.0965
+{txt}Residual SS             = {res} 55600.75646{txt}{col 55}Root MSE      = {res}   2.745
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}         delay_ln{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .6908974{col 31}{space 2} .3433611{col 42}{space 1}    2.01{col 51}{space 3}0.045{col 59}{space 4} .0168827{col 72}{space 3} 1.364912
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2}  .200354{col 31}{space 2} .1444284{col 42}{space 1}    1.39{col 51}{space 3}0.166{col 59}{space 4}-.0831575{col 72}{space 3} .4838656
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2}-.8298083{col 31}{space 2} .5835957{col 42}{space 1}   -1.42{col 51}{space 3}0.155{col 59}{space 4}-1.975401{col 72}{space 3} .3157845
+{txt}independent_board {c |}{col 19}{res}{space 2}-1.336925{col 31}{space 2} .9582047{col 42}{space 1}   -1.40{col 51}{space 3}0.163{col 59}{space 4}-3.217872{col 72}{space 3} .5440218
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2} .3010262{col 31}{space 2} .0748468{col 42}{space 1}    4.02{col 51}{space 3}0.000{col 59}{space 4} .1541026{col 72}{space 3} .4479497
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2} .1547561{col 31}{space 2} .1121574{col 42}{space 1}    1.38{col 51}{space 3}0.168{col 59}{space 4}-.0654079{col 72}{space 3}   .37492
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-1.429621{col 31}{space 2} .4413477{col 42}{space 1}   -3.24{col 51}{space 3}0.001{col 59}{space 4}-2.295983{col 72}{space 3}-.5632599
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2}-1.404306{col 31}{space 2} .5599292{col 42}{space 1}   -2.51{col 51}{space 3}0.012{col 59}{space 4}-2.503442{col 72}{space 3}-.3051702
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2} .0003706{col 31}{space 2} .0010029{col 42}{space 1}    0.37{col 51}{space 3}0.712{col 59}{space 4}-.0015981{col 72}{space 3} .0023393
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} .1526761{col 31}{space 2} .4620227{col 42}{space 1}    0.33{col 51}{space 3}0.741{col 59}{space 4}-.7542701{col 72}{space 3} 1.059622
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2}-1.847641{col 31}{space 2} 1.650362{col 42}{space 1}   -1.12{col 51}{space 3}0.263{col 59}{space 4}-5.087285{col 72}{space 3} 1.392004
+{txt}{space 14}emp {c |}{col 19}{res}{space 2} .0012229{col 31}{space 2} .0009918{col 42}{space 1}    1.23{col 51}{space 3}0.218{col 59}{space 4} -.000724{col 72}{space 3} .0031697
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71} 130.567
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 342.983
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  60.555
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.197
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.9060
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       55{col 27}{space 1}        0{col 39}{result}{space 1}       55{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. ivreghdfe extra_delay gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp (totnumties_ln = MBA_dum_sum IVY_dum_sum  numIndustries_sum) , absorb(sic2 year) cluster(gvkey) gmm2s
+{res}{txt}(dropped 2 {browse "http://scorreia.com/research/singletons.pdf":singleton observations})
+{res}{txt}({browse "http://scorreia.com/research/hdfe.pdf":MWFE estimator} converged in 5 iterations)
+{res}
+{txt}2-Step GMM estimation
+{hline 21}
+
+Estimates efficient for arbitrary heteroskedasticity and clustering on gvkey
+Statistics robust to heteroskedasticity and clustering on gvkey
+
+Number of clusters (gvkey) = {col 33}{res}   742{txt}{col 55}Number of obs = {res}    3675
+{txt}{col 55}F( 12,   741) = {res}    0.73
+{txt}{col 55}Prob > F      = {res}  0.7203
+{txt}Total (centered) SS     = {res} 16692425.76{txt}{col 55}Centered R2   = {res}  0.1269
+{txt}Total (uncentered) SS   = {res} 16692425.76{txt}{col 55}Uncentered R2 = {res}  0.1269
+{txt}Residual SS             = {res} 14573924.23{txt}{col 55}Root MSE      = {res}   63.63
+
+{txt}{hline 18}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 19}{c |}{col 31}    Robust
+{col 1}      extra_delay{col 19}{c |} Coefficient{col 31}  std. err.{col 43}      t{col 51}   P>|t|{col 59}     [95% con{col 72}f. interval]
+{hline 18}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 4}totnumties_ln {c |}{col 19}{res}{space 2} .3337965{col 31}{space 2} 4.734276{col 42}{space 1}    0.07{col 51}{space 3}0.944{col 59}{space 4}-8.960395{col 72}{space 3} 9.627988
+{txt}{space 10}gov_dum {c |}{col 19}{res}{space 2} 2.265729{col 31}{space 2} 2.006019{col 42}{space 1}    1.13{col 51}{space 3}0.259{col 59}{space 4}-1.672428{col 72}{space 3} 6.203887
+{txt}{space 5}boardsize_ln {c |}{col 19}{res}{space 2} 5.561746{col 31}{space 2} 6.882108{col 42}{space 1}    0.81{col 51}{space 3}0.419{col 59}{space 4}-7.949006{col 72}{space 3}  19.0725
+{txt}independent_board {c |}{col 19}{res}{space 2}-13.17683{col 31}{space 2} 14.12509{col 42}{space 1}   -0.93{col 51}{space 3}0.351{col 59}{space 4}-40.90679{col 72}{space 3} 14.55312
+{txt}{space 8}firm_size {c |}{col 19}{res}{space 2}-1.019917{col 31}{space 2} 2.012177{col 42}{space 1}   -0.51{col 51}{space 3}0.612{col 59}{space 4}-4.970164{col 72}{space 3}  2.93033
+{txt}{space 9}firm_age {c |}{col 19}{res}{space 2}-.0161722{col 31}{space 2}  1.59351{col 42}{space 1}   -0.01{col 51}{space 3}0.992{col 59}{space 4}-3.144504{col 72}{space 3} 3.112159
+{txt}{space 13}cash {c |}{col 19}{res}{space 2}-1.550577{col 31}{space 2} 3.582369{col 42}{space 1}   -0.43{col 51}{space 3}0.665{col 59}{space 4}-8.583377{col 72}{space 3} 5.482224
+{txt}{space 7}ppe_assets {c |}{col 19}{res}{space 2} -1.29667{col 31}{space 2} 11.06823{col 42}{space 1}   -0.12{col 51}{space 3}0.907{col 59}{space 4} -23.0255{col 72}{space 3} 20.43216
+{txt}{space 4}profitability {c |}{col 19}{res}{space 2}-4.606245{col 31}{space 2} 4.004518{col 42}{space 1}   -1.15{col 51}{space 3}0.250{col 59}{space 4} -12.4678{col 72}{space 3} 3.255307
+{txt}{space 14}HHI {c |}{col 19}{res}{space 2} 11.63569{col 31}{space 2} 6.440871{col 42}{space 1}    1.81{col 51}{space 3}0.071{col 59}{space 4} -1.00884{col 72}{space 3} 24.28022
+{txt}{space 9}capex_at {c |}{col 19}{res}{space 2} -43.5307{col 31}{space 2} 23.84837{col 42}{space 1}   -1.83{col 51}{space 3}0.068{col 59}{space 4}-90.34912{col 72}{space 3} 3.287724
+{txt}{space 14}emp {c |}{col 19}{res}{space 2}-.0042177{col 31}{space 2} .0086031{col 42}{space 1}   -0.49{col 51}{space 3}0.624{col 59}{space 4} -.021107{col 72}{space 3} .0126716
+{txt}{hline 18}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{help ivreg2##idtest:Underidentification test} (Kleibergen-Paap rk LM statistic):{res}{col 71}  89.655
+{txt}{col 52}Chi-sq({res}3{txt}) P-val =  {res}{col 73}0.0000
+{txt}{hline 78}
+{help ivreg2##widtest:Weak identification test} (Cragg-Donald Wald F statistic):{res}{col 71} 150.361
+{txt}                         (Kleibergen-Paap rk Wald F statistic):{res}{col 71}  34.838
+{txt}Stock-Yogo weak ID test critical values:{res}{txt}{col 42} 5% maximal IV relative bias{res}{col 73} 13.91
+{txt}{col 42}10% maximal IV relative bias{res}{col 73}  9.08
+{txt}{col 42}20% maximal IV relative bias{res}{col 73}  6.46
+{txt}{col 42}30% maximal IV relative bias{res}{col 73}  5.39
+{txt}{col 42}10% maximal IV size{res}{col 73} 22.30
+{txt}{col 42}15% maximal IV size{res}{col 73} 12.83
+{txt}{col 42}20% maximal IV size{res}{col 73}  9.54
+{txt}{col 42}25% maximal IV size{res}{col 73}  7.80
+{txt}Source: Stock-Yogo (2005).  Reproduced by permission.
+NB: Critical values are for Cragg-Donald F statistic and i.i.d. errors.
+{hline 78}
+{help ivreg2##overidtests:Hansen J statistic} (overidentification test of all instruments):{res}{col 71}   0.272
+{txt}{col 52}Chi-sq({res}2{txt}) P-val =  {res}{col 73}0.8727
+{txt}{hline 78}
+Instrumented:{col 23}totnumties_ln
+Included instruments:{col 23}gov_dum boardsize_ln independent_board firm_size firm_age
+{col 23}cash ppe_assets profitability HHI capex_at emp
+Excluded instruments:{col 23}MBA_dum_sum IVY_dum_sum numIndustries_sum
+{help ivreg2##partial:Partialled-out}:{col 23}_cons
+{col 23}nb: total SS, model F and R2s are after partialling-out;
+{col 23}    any {help ivreg2##s_small:small-sample adjustments} include partialled-out
+{col 23}    variables in regressor count K
+{hline 78}
+{res}
+{txt}Absorbed degrees of freedom:
+{res}{col 1}{text}{hline 13}{c TT}{hline 12}{hline 12}{hline 14}{hline 1}{c TRC}
+{col 1}{text} Absorbed FE{col 14}{c |} Categories{col 27} - Redundant{col 39}  = Num. Coefs{col 54}{c |}
+{res}{col 1}{text}{hline 13}{c +}{hline 12}{hline 12}{hline 14}{hline 1}{c RT}
+{col 1}{text}        sic2{col 14}{c |}{space 1}       53{col 27}{space 1}        0{col 39}{result}{space 1}       53{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}        year{col 14}{c |}{space 1}       11{col 27}{space 1}        1{col 39}{result}{space 1}       10{col 53}{text} {col 54}{c |}
+{res}{col 1}{text}{hline 13}{c BT}{hline 12}{hline 12}{hline 14}{hline 1}{c BRC}
+{res}{txt}
+{com}. 
+. 
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}D:\dataset\board networks and procurement\firm-connection-in-procurement\2SLS Reg.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}22 Nov 2025, 12:40:03
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
