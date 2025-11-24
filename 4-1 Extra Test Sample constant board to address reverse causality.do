@@ -18,12 +18,12 @@ duplicates drop
 
 keep if boardsize == boardsize_lag
 
-// (Though xtset handles the L. operator, sorting this way is good practice before generating lagged variables)
+* (Though xtset handles the L. operator, sorting this way is good practice before generating lagged variables)
 sort gvkey directorid year
 
-// Create a variable that holds the director's year *last* seen
-// This is more complex to implement directly with L.directorid.
-// A simpler, more reliable approach for panel data:
+* Create a variable that holds the director's year *last* seen
+* This is more complex to implement directly with L.directorid.
+* A simpler, more reliable approach for panel data:
 by gvkey directorid: gen last_year_seen = year[_n-1]
 by gvkey directorid: replace last_year_seen = . if year - last_year_seen > 1
 
