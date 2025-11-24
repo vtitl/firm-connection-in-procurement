@@ -1,14 +1,17 @@
+global OneDrivePath "D:\OneDrive - Universitat de Barcelona\Project-Board Networks and Procurement\Raw Datasets"
+
 cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
+
 clear all
 
 ***matching FPDS duns with gvkey and boardid through ISIN
-import excel "duns-isin-2025.xlsx", sheet("sheet1") firstrow case(lower) allstring
+import excel "$OneDrivePath\duns-isin-2025.xlsx", sheet("sheet1") firstrow case(lower) allstring
 drop check f colorlegendbluedoublechec h i
 duplicates drop
 
 save "duns_isin.dta", replace
 
-use "XX Compustat BoardEx id matching final.dta", clear
+use "$OneDrivePath\XX Compustat BoardEx id matching final.dta", clear
 
 
 joinby isin using "duns_isin.dta", unmatched(both)
@@ -23,9 +26,9 @@ save "XX duns-gvkey-boardid.dta",replace
 
 
 ***Regegotiation Data parent firm duns ID matching
-use "fpds_20082018.dta", clear
+use "$OneDrivePath\fpds_20082018.dta", clear
 
-merge 1:m award_id_piid using"FPDS.dta", keepusing(recipient_duns recipient_parent_duns)
+merge 1:m award_id_piid using"$OneDrivePath\FPDS.dta", keepusing(recipient_duns recipient_parent_duns)
 keep if _m==3
 drop _m
 
