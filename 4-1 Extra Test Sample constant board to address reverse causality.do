@@ -1,11 +1,17 @@
-use "1 board size.dta", clear 
+global OneDrivePath "D:\OneDrive - Universitat de Barcelona\Project-Board Networks and Procurement\Raw Datasets"
+
+cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
+
+use "$OneDrivePath\1 board size.dta", clear 
 keep gvkey year boardsize
 duplicates drop
 xtset gvkey year
 
 gen boardsize_lag = L.boardsize
 
-merge 1:m gvkey year using "1 compustat boardex id 00-19 20 years board members infor.dta"
+merge 1:m gvkey year using "$OneDrivePath\1 compustat boardex id 00-19 20 years board members infor.dta"
+
+keep if _m == 3
 
 keep gvkey year boardsize boardsize_lag directorid
 duplicates drop
