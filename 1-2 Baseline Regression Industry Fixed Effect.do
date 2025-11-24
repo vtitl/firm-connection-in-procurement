@@ -50,9 +50,9 @@ reghdfe final_duration_ln `var'_ln gov_dum boardsize_ln independent_board firm_s
 
 reghdfe delay_ln `var'_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(sic2 year) vce(cluster gvkey)
 
-reghdfe extra_cost_ln `var'_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(sic2 year) vce(cluster gvkey)
+reghdfe extra_cost `var' gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(sic2 year) vce(cluster gvkey)
 
-reghdfe extra_delay_ln `var'_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(sic2 year) vce(cluster gvkey)	
+reghdfe extra_delay `var' gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(sic2 year) vce(cluster gvkey)	
 	
 
 }
