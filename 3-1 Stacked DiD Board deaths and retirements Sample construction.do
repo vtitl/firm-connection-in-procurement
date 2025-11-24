@@ -1,8 +1,9 @@
 clear all
+global OneDrivePath "D:\OneDrive - Universitat de Barcelona\Project-Board Networks and Procurement\Raw Datasets"
 
 cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
 
-use "5-All Board Member Deaths and Retirements Connections Information.dta", clear
+use "$OneDrivePath\5-All Board Member Deaths and Retirements Connections Information.dta", clear
 
 bysort gvkey boardid directorid (date_DR): keep if _n == _N
 
@@ -67,24 +68,24 @@ foreach var in modification renegotiation expected_cost total_cost_all expected_
 }
 
 
-merge m:1 gvkey boardid year using "3 overall number of connections data with no connection firms.dta"
+merge m:1 gvkey boardid year using "$OneDrivePath\3 overall number of connections data with no connection firms.dta"
 
 keep if _m==3
 
 drop _m 
 
 
-merge m:1 gvkey year using "firm financials YEARLY data 2000-2020.dta"
+merge m:1 gvkey year using "$OneDrivePath\firm financials YEARLY data 2000-2020.dta"
 
 keep if _m==3
 
 drop _m
 
-merge m:1 gvkey year using "1 board size.dta"
+merge m:1 gvkey year using "$OneDrivePath\1 board size.dta"
 keep if _m == 3
 drop _m
 
-merge m:1 gvkey boardid year using "Firm Year GOV ARMY Historical Employment.dta"
+merge m:1 gvkey boardid year using "$OneDrivePath\Firm Year GOV ARMY Historical Employment.dta"
 
 drop if _m == 2
 drop _m
@@ -191,7 +192,7 @@ save "First Test DiD Board connections only parent duns REG SAMPLE", replace
 
 
 ***Human capital
-use "XX Director Human Capital firm year director level.dta", clear
+use "$OneDrivePath\XX Director Human Capital firm year director level.dta", clear
 
 foreach var in numFirms numPositions numIndustries numCEOexps numCong4d{
 bysort gvkey year boardid: egen `var'_sum = sum(`var')
@@ -212,7 +213,7 @@ replace `var'_sum = 0 if `var'_sum == .
 
 save "First Test DiD Board connections only parent duns REG SAMPLE", replace
 
-use "XX Directors MBA and IVY Hiring firm year director level.dta", clear
+use "$OneDrivePath\XX Directors MBA and IVY Hiring firm year director level.dta", clear
 foreach var in MBA_dum IVY_dum{
 bysort gvkey year boardid: egen `var'_sum = sum(`var')
 }
