@@ -89,16 +89,19 @@ reghdfe `var'_ln i.Treat##i.post gov_dum boardsize_ln independent_board firm_siz
 }
 
 *Continuous Treat (the number of connection that the died or retired board member had), no control variables
+gen totnumties_DR_ln = ln(totnumties_DR+1)
+
+
 foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{
 	
-reghdfe `var'_ln c.totnumties_DR##i.post, abs(gvkey directorid year) vce(cluster gvkey)
+reghdfe `var'_ln c.totnumties_DR_ln##i.post, abs(gvkey directorid year) vce(cluster gvkey)
 
 }
 
 *Continuous Treat (the number of connection that the died or retired board member had) with control variables
 foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{
 	
-reghdfe `var'_ln  c.totnumties_DR##i.post gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+reghdfe `var'_ln  c.totnumties_DR_ln##i.post gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
 }
 
