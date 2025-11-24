@@ -20,7 +20,7 @@ gen post1 = post
 replace post1 = . if timing == 8 | timing == 0 | timing == 7 | timing == 1 | timing == 6 | timing == 2
 
 *Parallel Trends
-reghdfe totnumties_ln ib4.timing##i.Treat, abs(gvkey directorid year) vce(cluster gvkey)
+reghdfe totnumties_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
 coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
     xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
@@ -32,7 +32,7 @@ coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(reca
     graphregion(color(white)) bgcolor(white) scheme(s1mono)
 
 	
-reghdfe numcontract ib4.timing##i.Treat, abs(gvkey directorid year) vce(cluster gvkey)
+reghdfe numcontract_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
 coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
 	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
@@ -42,8 +42,20 @@ coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(reca
     yline(0, lpattern(dash)) ///
     title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Number of Contracts") ///
     graphregion(color(white)) bgcolor(white) scheme(s1mono)	
+	
+reghdfe renegotiation_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
-reghdfe expected_cost_ln ib4.timing##i.Treat, abs(gvkey directorid year) vce(cluster gvkey)
+coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
+	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
+           5 "Year 0" 6 "Year +1" 7 "Year +2" 8 "Year +3"  ///
+           9 "Year +4", ///
+           angle(45)) ///
+    yline(0, lpattern(dash)) ///
+    title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Times of Renegotiations") ///
+    graphregion(color(white)) bgcolor(white) scheme(s1mono)	
+	
+	
+reghdfe expected_cost_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
 coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
 	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
@@ -54,7 +66,7 @@ coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(reca
     title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Expected Cost") ///
     graphregion(color(white)) bgcolor(white) scheme(s1mono)
 	
-reghdfe total_cost_all_ln ib4.timing##i.Treat, abs(gvkey directorid year) vce(cluster gvkey)
+reghdfe total_cost_all_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
 coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
 	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
@@ -64,7 +76,51 @@ coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(reca
     yline(0, lpattern(dash)) ///
     title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Total Cost") ///
     graphregion(color(white)) bgcolor(white) scheme(s1mono)
+	
+reghdfe expected_duration_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
+coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
+	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
+           5 "Year 0" 6 "Year +1" 7 "Year +2" 8 "Year +3"  ///
+           9 "Year +4", ///
+           angle(45)) ///
+    yline(0, lpattern(dash)) ///
+    title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Expected Duration") ///
+    graphregion(color(white)) bgcolor(white) scheme(s1mono)
+	
+reghdfe final_duration_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+
+coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
+	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
+           5 "Year 0" 6 "Year +1" 7 "Year +2" 8 "Year +3"  ///
+           9 "Year +4", ///
+           angle(45)) ///
+    yline(0, lpattern(dash)) ///
+    title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Total Duration") ///
+    graphregion(color(white)) bgcolor(white) scheme(s1mono)
+
+	
+reghdfe cost_overrun_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+	
+coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
+	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
+           5 "Year 0" 6 "Year +1" 7 "Year +2" 8 "Year +3"  ///
+           9 "Year +4", ///
+           angle(45)) ///
+    yline(0, lpattern(dash)) ///
+    title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Cost Overrun") ///
+    graphregion(color(white)) bgcolor(white) scheme(s1mono)
+	
+reghdfe delay_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
+
+coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(recast(rcap)) ///
+	xlabel(1 "Year -4" 2 "Year -3" 3 "Year -2" 4 "Year -1"  ///
+           5 "Year 0" 6 "Year +1" 7 "Year +2" 8 "Year +3"  ///
+           9 "Year +4", ///
+           angle(45)) ///
+    yline(0, lpattern(dash)) ///
+    title("Parallel Trends") xtitle("Event Time") ytitle("Effect on the Delay") ///
+    graphregion(color(white)) bgcolor(white) scheme(s1mono)
 	
 
 
@@ -90,7 +146,6 @@ reghdfe `var'_ln i.Treat##i.post gov_dum boardsize_ln independent_board firm_siz
 
 *Continuous Treat (the number of connection that the died or retired board member had), no control variables
 gen totnumties_DR_ln = ln(totnumties_DR+1)
-
 
 foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{
 	
