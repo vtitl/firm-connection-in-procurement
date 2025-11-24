@@ -1,5 +1,6 @@
-cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
+global OneDrivePath "D:\OneDrive - Universitat de Barcelona\Project-Board Networks and Procurement\Raw Datasets"
 
+cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
 
 use "Renegotiation_only_parent_duns_matched gvkey boarid", clear
 
@@ -21,21 +22,21 @@ foreach var in modification renegotiation expected_cost total_cost_all expected_
 *lag connection, financial data, and board information.
 replace year = year - 1
 
-merge m:1 gvkey boardid year using "3 overall number of connections data with no connection firms.dta"
+merge m:1 gvkey boardid year using "$OneDrivePath\3 overall number of connections data with no connection firms.dta"
 keep if _m==3
 drop _m
 
-merge m:1 gvkey year using "firm financials YEARLY data 2000-2020.dta"
+merge m:1 gvkey year using "$OneDrivePath\firm financials YEARLY data 2000-2020.dta"
 keep if _m==3
 drop _m
 
 
-merge m:1 gvkey year using "1 board size.dta"
+merge m:1 gvkey year using "$OneDrivePath\1 board size.dta"
 keep if _m == 3
 drop _m
 
 
-merge m:1 gvkey boardid year using "Firm Year GOV ARMY Historical Employment.dta"
+merge m:1 gvkey boardid year using "$OneDrivePath\Firm Year GOV ARMY Historical Employment.dta"
 drop if _m == 2
 drop _m
 
@@ -67,7 +68,6 @@ duplicates drop
 gen extra_cost = cost_overrun/expected_cost
 
 gen extra_delay = delay/expected_duration
-
 
 foreach var in totnumties totnumtiesSIC4 totnumtiesDSIC4 totnumtiesSIC3 totnumtiesDSIC3 totnumtiesSIC2 totnumtiesDSIC2 totnumtiesTNIC3 totnumtiesDTNIC3 totnumtiesTNIC2 totnumtiesDTNIC2 priornumties priornumtiesSIC4 priornumtiesDSIC4 priornumtiesSIC3 priornumtiesDSIC3 priornumtiesSIC2 priornumtiesDSIC2 priornumtiesTNIC3 priornumtiesDTNIC3 priornumtiesTNIC2 priornumtiesDTNIC2 intlnumties intlnumtiesSIC4 intlnumtiesDSIC4 intlnumtiesSIC3 intlnumtiesDSIC3 intlnumtiesSIC2 intlnumtiesDSIC2 intlnumtiesTNIC3 intlnumtiesDTNIC3 intlnumtiesTNIC2 intlnumtiesDTNIC2{
 	
@@ -102,11 +102,11 @@ gen army_num_ln = ln(army_num + 1)
 
 gen army_num_asinh = asinh(army_num)
 
-save "First Test OLS Sample data.dta", replace
+save "First Test OLS Sample data no winning years.dta", replace
 
 
 ***Board Human capital
-use "XX Director Human Capital firm year director level.dta", clear
+use "$OneDrivePath\XX Director Human Capital firm year director level.dta", clear
 
 foreach var in numFirms numPositions numIndustries numSICIndustries numCEOexps numCong4d{
 bysort gvkey year boardid: egen `var'_sum = sum(`var')
@@ -116,7 +116,7 @@ keep gvkey year boardid numFirms_sum numPositions_sum numIndustries_sum numSICIn
 
 bysort _all: keep if _n==1
 
-merge 1:1 gvkey year boardid using "First Test OLS Sample data.dta"
+merge 1:1 gvkey year boardid using "First Test OLS Sample data no winning years.dta"
 drop if _m == 1
 
 drop _m
@@ -125,9 +125,9 @@ foreach var in numFirms numPositions numIndustries numSICIndustries numCEOexps n
 replace `var'_sum = 0 if `var'_sum == .
 }
 
-save "First Test OLS Sample data.dta", replace
+save "First Test OLS Sample data no winning years.dta", replace
 
-use "XX Directors MBA and IVY Hiring firm year director level.dta", clear
+use "$OneDrivePath\XX Directors MBA and IVY Hiring firm year director level.dta", clear
 
 gen highDegree_dum = 1 if MBA_dum == 1 | graduate_dum == 1
 replace highDegree_dum = 0 if highDegree_dum == .
@@ -140,7 +140,7 @@ keep gvkey year boardid MBA_dum_sum IVY_dum_sum IvyMBA_dum_sum graduate_dum_sum 
 
 bysort _all: keep if _n==1
 
-merge 1:1 gvkey year boardid using "First Test OLS Sample data.dta"
+merge 1:1 gvkey year boardid using "First Test OLS Sample data no winning years.dta"
 drop if _m == 1
 
 drop _m
