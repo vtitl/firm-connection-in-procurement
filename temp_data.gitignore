@@ -1,0 +1,21 @@
+# Ignore Stata data files (usually large or confidential)
+*.dta
+
+# Ignore Stata log files
+*.log
+*.smcl
+
+# Ignore Stata temporary files
+*.tmp
+*.stb
+
+# Ignore output tables and graphics
+*.gph
+*.png
+*.pdf
+*.csv
+*.xlsx
+
+# OS-specific files
+.DS_Store
+Thumbs.db
