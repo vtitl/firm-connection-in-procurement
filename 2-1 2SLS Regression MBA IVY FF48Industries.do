@@ -17,11 +17,24 @@ reghdfe totnumties_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsiz
 
 reghdfe numcontract_ln  MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
 
+reghdfe renegotiation_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
 
 reghdfe expected_cost_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
 
 reghdfe total_cost_all_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
 
+reghdfe cost_overrun_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
+reghdfe expected_duration_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
+reghdfe final_duration_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
+reghdfe delay_ln MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
+reghdfe extra_cost MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
+
+reghdfe extra_delay MBA_dum_sum IVY_dum_sum numIndustries_sum gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , absorb(sic2 year) cluster(gvkey)
 
 
 ***2SLS with GMM option
