@@ -58,7 +58,7 @@ log using "Mechanism-Advising-Complexity.smcl", replace
 log on
 
 *****************************
-*split sample analysis
+*split sample analysis by Complexity. The more complex the firm the stronger the advicing effect from the networks 
 foreach var in numcontract_ln renegotiation_ln expected_cost_ln total_cost_all_ln expected_duration_ln final_duration_ln cost_overrun_ln delay_ln extra_cost extra_delay{
 	
 
