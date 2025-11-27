@@ -26,6 +26,18 @@ merge m:1 gvkey boardid year using "$OneDrivePath\3 overall number of connection
 keep if _m==3
 drop _m
 
+merge m:1 gvkey boardid year using "$OneDrivePath\3 emp firm year level connections data with no connection firms.dta"
+keep if _m==3
+drop _m
+
+merge m:1 gvkey boardid year using "$OneDrivePath\3 edu firm year level connections data with no connection firms.dta"
+keep if _m==3
+drop _m
+
+merge m:1 gvkey boardid year using "$OneDrivePath\3 clubs firm year level connections data with no connection firms.dta"
+keep if _m==3
+drop _m
+
 merge m:1 gvkey year using "$OneDrivePath\firm financials YEARLY data 2000-2020.dta"
 keep if _m==3
 drop _m
@@ -73,6 +85,15 @@ foreach var in totnumties totnumtiesSIC4 totnumtiesDSIC4 totnumtiesSIC3 totnumti
 	
 gen `var'_ln = ln(`var' + 1)
 gen `var'_asinh = asinh(`var')
+
+gen `var'_emp_ln = ln(`var'_emp + 1)
+gen `var'_emp_asinh = asinh(`var'_emp)
+
+gen `var'_edu_ln = ln(`var'_edu + 1)
+gen `var'_edu_asinh = asinh(`var'_edu)
+
+gen `var'_clubs_ln = ln(`var'_clubs + 1)
+gen `var'_clubs_asinh = asinh(`var'_clubs)
 
 }
 
