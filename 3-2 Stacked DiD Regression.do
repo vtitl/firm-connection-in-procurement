@@ -2,7 +2,10 @@ clear all
 
 cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
 
-use "First Test DiD Board connections only parent duns REG SAMPLE", clear
+use "First Test DiD Death and Retirement Board connections only parent duns REG SAMPLE", clear
+
+*only death
+*use "First Test DiD Death Board connections only parent duns REG SAMPLE", clear
 
 *Keep those events contain at least one observation before and one observation after the event.
 bysort numEvent: gen pre = 1 if year < year_DR
@@ -19,6 +22,12 @@ replace post2 = . if timing == 8 | timing == 0 | timing == 7 | timing == 1
 gen post1 = post
 replace post1 = . if timing == 8 | timing == 0 | timing == 7 | timing == 1 | timing == 6 | timing == 2
 
+
+log using "Stacked Deaths and Retirements binary and continous Treatment DiD.smcl", replace
+*only death
+*log using "Stacked Deaths binary and continous Treatment DiD.smcl", replace
+
+log on
 *Parallel Trends
 reghdfe totnumties_ln ib4.timing##i.Treat gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp, abs(gvkey directorid year) vce(cluster gvkey)
 
@@ -126,9 +135,7 @@ coefplot, keep(*timing#*Treat) vertical baselevels recast(connected) ciopts(reca
 
 *Final Regressions
 
-log using "Stacked Deaths and Retirements binary and continous Treatment DiD.smcl", replace
 
-log on
 
 **Binary Treat, no control variables
 foreach var in numcontract renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay extra_cost extra_delay{
