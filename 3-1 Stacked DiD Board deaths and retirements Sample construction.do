@@ -4,18 +4,20 @@ global OneDrivePath "D:\OneDrive - Universitat de Barcelona\Project-Board Networ
 cd "D:\dataset\board networks and procurement\firm-connection-in-procurement"
 
 use "$OneDrivePath\5-All Board Member Deaths and Retirements Connections Information.dta", clear
+*only death
+*use "$OneDrivePath\5-All Board Member Deaths Connections Information.dta", clear
+
 
 bysort gvkey boardid directorid (date_DR): keep if _n == _N
 
 *our sample period
 keep if year >= 2008 & year <= 2018
-
 *Event id numEvent for each retirement and death.
 gsort gvkey boardid boardname year_DR directorid directorname date_DR
 gen numEvent = _n
 
 
-*number of death above the median is the treatment
+*number of connection above the median is the treatment
 quietly sum totnumties,d
 
 gen Treat = 1 if totnumties >= r(p50)
@@ -60,7 +62,7 @@ merge 1:m gvkey boardid duns year using "Renegotiation_only_parent_duns_matched 
 drop _m recipient_parent_duns cusip conm cik cusip8d boardname orgtype isin cusip6 zip name
 
 
-foreach var in modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay{
+foreach var in expected_cost total_cost_all {
 	
 	replace `var' = 0 if `var' == .
 	
@@ -75,7 +77,7 @@ keep if _m==3
 drop _m 
 
 
-merge m:1 gvkey year using "$OneDrivePath\firm financials YEARLY data 2000-2020.dta"
+merge m:1 gvkey year using "$OneDrivePath\firm_yearly_data.dta"
 
 keep if _m==3
 
@@ -102,12 +104,18 @@ save "First Test DiD Board connections only parent duns", replace
 use "First Test DiD Board connections only parent duns", clear
 
 ***aggregate all winning contracts in a given year****
-bysort gvkey boardid duns year: gen numcontract = _N if award_id_piid !=""
-replace numcontract = 0 if numcontract == .
+bysort gvkey boardid duns year: egen numcontract = total(award_id_piid != "")
 
-foreach var in modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay{
+
+foreach var in expected_cost total_cost_all {
 
 bysort gvkey boardid duns year: ereplace `var' = sum(`var')
+
+}
+
+foreach var in modification renegotiation expected_duration final_duration cost_overrun delay{
+
+bysort gvkey boardid duns year: ereplace `var' = sum(`var') if numcontract != 0
 
 }
 
@@ -115,9 +123,9 @@ drop award_id_piid
 
 duplicates drop
 
-gen extra_cost = abs(cost_overrun)/expected_cost
+gen extra_cost = cost_overrun/expected_cost
 
-gen extra_delay = abs(delay)/expected_duration
+gen extra_delay = delay/expected_duration
 
 
 foreach var in totnumties totnumtiesSIC4 totnumtiesDSIC4 totnumtiesSIC3 totnumtiesDSIC3 totnumtiesSIC2 totnumtiesDSIC2 totnumtiesTNIC3 totnumtiesDTNIC3 totnumtiesTNIC2 totnumtiesDTNIC2 priornumties priornumtiesSIC4 priornumtiesDSIC4 priornumtiesSIC3 priornumtiesDSIC3 priornumtiesSIC2 priornumtiesDSIC2 priornumtiesTNIC3 priornumtiesDTNIC3 priornumtiesTNIC2 priornumtiesDTNIC2 intlnumties intlnumtiesSIC4 intlnumtiesDSIC4 intlnumtiesSIC3 intlnumtiesDSIC3 intlnumtiesSIC2 intlnumtiesDSIC2 intlnumtiesTNIC3 intlnumtiesDTNIC3 intlnumtiesTNIC2 intlnumtiesDTNIC2 {
@@ -231,5 +239,8 @@ foreach var in MBA_dum IVY_dum{
 replace `var'_sum = 0 if `var'_sum == .
 }
 
-save "First Test DiD Board connections only parent duns REG SAMPLE", replace
 
+save "First Test DiD Death and Retirement Board connections only parent duns REG SAMPLE", replace
+
+*only death
+*save "First Test DiD Death Board connections only parent duns REG SAMPLE", replace
