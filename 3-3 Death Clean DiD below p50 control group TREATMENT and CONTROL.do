@@ -22,14 +22,16 @@ keep if _m == 3
 drop _m
 
 
-merge 1:1 gvkey year using "$OneDrivePath\firm financials YEARLY data 2000-2020.dta"
+merge 1:1 gvkey year using "$OneDrivePath\firm_yearly_data.dta"
 
 keep if _m == 3
 
 drop _m
 
 
-merge 1:m gvkey boardid year using "$OneDrivePath\3-All Board Member Deaths 2000-2019.dta"
+*merge 1:m gvkey boardid year using "$OneDrivePath\5-All Board Member Deaths and Retirements Connections Information.dta"
+*only death
+merge 1:m gvkey boardid year using "$OneDrivePath\5-All Board Member Deaths Connections Information.dta"
 
 drop if _m == 2
 
@@ -37,6 +39,8 @@ drop _m boardid boardname directorid directorname date_DR
 bysort gvkey duns year: ereplace death_dum = max(death_dum)
 duplicates drop
 
+*here death_dum is not only for death, it's for both death and retirement, skip the first replacement if we only use death
+*replace death_dum = 1 if death_dum == 0
 replace death_dum = 0 if death_dum == .
 replace death_dum = 0 if totnumties == 0
 
@@ -240,8 +244,9 @@ drop _m
 
 gsort numEvent -Treat timing
 
+*save "Board Death and Retirement SIC1 Control Stacked Data", replace
+*only death
 save "Board Death SIC1 Control Stacked Data", replace
-
 
 covbal Treat firm_size firm_age cash ppe_assets altmanZ RandD leverage_val profitability capex_at market_capitalistion tobins_q KZ_index totnumties totnumtiesSIC4 totnumtiesDSIC4 totnumtiesSIC3 totnumtiesDSIC3 totnumtiesSIC2 totnumtiesDSIC2 totnumtiesTNIC3 totnumtiesDTNIC3 totnumtiesTNIC2 totnumtiesDTNIC2 priornumties priornumtiesSIC4 priornumtiesDSIC4 priornumtiesSIC3 priornumtiesDSIC3 priornumtiesSIC2 priornumtiesDSIC2 priornumtiesTNIC3 priornumtiesDTNIC3 priornumtiesTNIC2 priornumtiesDTNIC2 intlnumties intlnumtiesSIC4 intlnumtiesDSIC4 intlnumtiesSIC3 intlnumtiesDSIC3 intlnumtiesSIC2 intlnumtiesDSIC2 intlnumtiesTNIC3 intlnumtiesDTNIC3 intlnumtiesTNIC2 intlnumtiesDTNIC2
 
