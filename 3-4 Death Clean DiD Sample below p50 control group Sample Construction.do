@@ -18,23 +18,29 @@ merge 1:m gvkey boardid duns year using "Renegotiation_only_parent_duns_matched 
 drop _m cusip conm cik cusip8d boardname orgtype isin cusip6 zip name
 
 
-foreach var in modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay{
+foreach var in expected_cost total_cost_all {
 	
 	replace `var' = 0 if `var' == .
 	
 	
 }
 
-keep award_id_piid year modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay recipient_parent_duns duns gvkey
+keep award_id_piid year modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay recipient_parent_duns duns gvkey 
 
 duplicates drop
 
-bysort gvkey duns year: gen numcontract = _N if award_id_piid !=""
-replace numcontract = 0 if numcontract == .
+bysort gvkey duns year: egen numcontract = total(award_id_piid != "")
 
-foreach var in modification renegotiation expected_cost total_cost_all expected_duration final_duration cost_overrun delay{
+
+foreach var in expected_cost total_cost_all {
 
 bysort gvkey duns year: ereplace `var' = sum(`var')
+
+}
+
+foreach var in modification renegotiation expected_duration final_duration cost_overrun delay{
+
+bysort gvkey duns year: ereplace `var' = sum(`var') if numcontract != 0
 
 }
 
@@ -48,6 +54,8 @@ gen extra_delay = delay/expected_duration
 
 *replace year = year - 1
 
+*merge 1:m gvkey year using "Board Death and Retirement SIC1 Control Stacked Data"
+*only death
 merge 1:m gvkey year using "Board Death SIC1 Control Stacked Data"
 keep if _m == 3
 drop _m
@@ -109,4 +117,7 @@ replace army_num = 0 if army_num == .
 
 
 
-save "DiD Death Retirement Treat and non-Death SIC 1 Controls Sample.dta", replace
+*save "DiD Death Retirement Treat and non-Death SIC 1 Controls Sample.dta", replace
+
+*only death
+save "DiD Death Treat and non-Death SIC 1 Controls Sample.dta", replace
