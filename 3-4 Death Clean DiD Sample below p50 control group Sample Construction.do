@@ -54,9 +54,9 @@ gen extra_delay = delay/expected_duration
 
 *replace year = year - 1
 
-*merge 1:m gvkey year using "Board Death and Retirement SIC1 Control Stacked Data"
+merge 1:m gvkey year using "Board Death and Retirement SIC1 Control Stacked Data"
 *only death
-merge 1:m gvkey year using "Board Death SIC1 Control Stacked Data"
+*merge 1:m gvkey year using "Board Death SIC1 Control Stacked Data"
 keep if _m == 3
 drop _m
 
@@ -117,7 +117,7 @@ replace army_num = 0 if army_num == .
 
 
 
-*save "DiD Death Retirement Treat and non-Death SIC 1 Controls Sample.dta", replace
+save "DiD Death Retirement Treat and non-Death SIC 1 Controls Sample.dta", replace
 
 *only death
-save "DiD Death Treat and non-Death SIC 1 Controls Sample.dta", replace
+*save "DiD Death Treat and non-Death SIC 1 Controls Sample.dta", replace
