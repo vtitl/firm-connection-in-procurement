@@ -69,30 +69,10 @@ log on
 **********
 *RE shock procurement
 
-	
-reghdfe numcontract_ln RE_shock totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
 
-
-reghdfe expected_cost_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe total_cost_all_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe cost_overrun_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe renegotiation_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe expected_duration_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe final_duration_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe delay_ln i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe extra_cost i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
-
-reghdfe extra_delay i.RE_shock c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
 
 ***RE shock##connection	
-reghdfe numcontract_ln i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
+reghdfe numcontract i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
 
 
 reghdfe expected_cost_ln i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
@@ -115,7 +95,7 @@ reghdfe extra_delay i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent
 
 
 *firm year fixed effect
-reghdfe numcontract_ln i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(gvkey year) vce(cluster gvkey)
+reghdfe numcontract i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(gvkey year) vce(cluster gvkey)
 
 
 reghdfe expected_cost_ln i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(gvkey year) vce(cluster gvkey)
@@ -139,7 +119,7 @@ reghdfe extra_delay i.RE_shock##c.totnumties_ln gov_dum boardsize_ln independent
 
 *lower than 25%, that is -2.77
 
-reghdfe numcontract_ln i.RE25shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
+reghdfe numcontract i.RE25shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
 
 
 reghdfe expected_cost_ln i.RE25shock##c.totnumties_ln gov_dum boardsize_ln independent_board firm_size firm_age cash ppe_assets profitability HHI capex_at emp , abs(zip_num sic2 year) vce(cluster gvkey)
