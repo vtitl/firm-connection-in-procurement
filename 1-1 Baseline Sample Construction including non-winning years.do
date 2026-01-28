@@ -73,13 +73,13 @@ bysort gvkey boardid duns year: egen numcontract = total(award_id_piid != "")
 
 foreach var in expected_cost total_cost_all {
 
-bysort gvkey boardid duns year: ereplace `var' = sum(`var')
+bysort gvkey boardid duns year: ereplace `var' = total(`var')
 
 }
 
 foreach var in modification renegotiation expected_duration final_duration cost_overrun delay{
 
-bysort gvkey boardid duns year: ereplace `var' = sum(`var') if numcontract != 0
+bysort gvkey boardid duns year: ereplace `var' = total(`var') if numcontract != 0
 
 }
 
